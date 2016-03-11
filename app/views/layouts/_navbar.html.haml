@@ -15,14 +15,7 @@
     / Collect the nav links, forms, and other content for toggling
     .collapse.navbar-collapse.navbar-ex1-collapse
         %ul.nav.navbar-nav
-            %li
-                = link_to root_path do
-                    %i.fa.fa-music
-                    My Albums
-            %li
-                = link_to root_path do
-                    %i.fa.fa-users
-                    My Artists
+            
             
         %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
