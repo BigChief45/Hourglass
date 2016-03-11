@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     delete 'logout', to: 'devise/sessions#destroy'
   end
   
-  root 'albums#index'
+  root 'punchcards#index'
 
+  resources :punchcards
 
 end
