@@ -1,0 +1,16 @@
+.row
+    .col-md-4
+        .panel.panel-default
+            .panel-heading
+                %b My Punchcards
+                
+                .pull-right
+                    = link_to new_punchcard_path, class: 'btn btn-xs btn-success' do
+                        %i.fa.fa-plus
+                        New
+            
+            %ul.list-group
+                %li.list-group-item Hello
+    
+    .col-md-8
+        // CALENDAR AREA
