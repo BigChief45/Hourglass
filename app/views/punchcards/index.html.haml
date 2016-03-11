@@ -10,7 +10,12 @@
                         New
             
             %ul.list-group
-                %li.list-group-item Hello
+                - @cards.each do |card|
+                    = link_to card, class: 'list-group-item' do
+                        %i{ class: "fa fa-#{card.icon}" }
+                        %span
+                        = card.name
+                
     
     .col-md-8
         // CALENDAR AREA

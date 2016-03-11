@@ -17,6 +17,7 @@
             .form-group
                 = f.label :icon
                 = f.text_field :icon, class: 'form-control input-sm'
+                %a{ href: 'https://fortawesome.github.io/Font-Awesome/icons/', target: '_blank' } Browse Icons
                 
             .form-group
                 = f.submit ( f.object.new_record? ? "Add Punchcard" : "Save Changes"), class: 'btn btn-success'
