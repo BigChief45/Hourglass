@@ -1,0 +1,23 @@
+= form_for @card do |f|
+    
+    // ERROR MESSAGES
+    = render "shared/errors", model: @card
+    
+    .row
+        .col-md-12
+            
+            .form-group
+                = f.label :name
+                = f.text_field :name, autofocus: true, class: 'form-control input-sm'
+            
+            .form-group
+                = f.label :description
+                = f.text_field :description, class: 'form-control input-sm'
+                
+            .form-group
+                = f.label :icon
+                = f.text_field, class: 'form-control input-sm'
+                
+            .form-group
+                = f.submit ( f.object.new_record? ? "Add Punchcard" : "Save Changes"), class: 'btn btn-success'
+                = link_to 'Cancel', albums_path, class: 'btn btn-default'
