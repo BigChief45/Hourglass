@@ -1,0 +1,2 @@
+class PunchcardsController < ApplicationController
+end
