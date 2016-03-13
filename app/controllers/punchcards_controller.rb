@@ -11,6 +11,12 @@ class PunchcardsController < ApplicationController
         @card = current_user.punchcards.build
     end
     
+    def show
+        respond_to do |format|
+            format.js
+        end
+    end
+    
     def create
        @card = current_user.punchcards.build(punchcard_params)
        
@@ -26,6 +32,7 @@ class PunchcardsController < ApplicationController
     private
     
         def find_punchcard
+            @card = Punchcard.find(params[:id])
         end
         
         def punchcard_params

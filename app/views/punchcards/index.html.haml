@@ -11,7 +11,7 @@
             
             %ul.list-group
                 - @cards.each do |card|
-                    = link_to card, class: 'list-group-item' do
+                    = link_to card, class: 'list-group-item', :remote => true do
                         %i{ class: "fa fa-#{card.icon}" }
                         %span
                         = card.name
@@ -19,3 +19,5 @@
     
     .col-md-8
         // CALENDAR AREA
+        #punchcard_area
+        
