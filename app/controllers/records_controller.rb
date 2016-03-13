@@ -9,7 +9,7 @@ class RecordsController < ApplicationController
         hash = {}
         
         @records.each do |r|
-            hash[r.date.to_i] = 30
+            hash[r.date.to_i] = r.hours
         end
         
         respond_to do |format|
@@ -45,6 +45,6 @@ class RecordsController < ApplicationController
         end
         
         def record_params
-           params.require(:record).permit(:date, :description, :punchcard_id) 
+           params.require(:record).permit(:date, :hours, :description, :punchcard_id) 
         end
 end

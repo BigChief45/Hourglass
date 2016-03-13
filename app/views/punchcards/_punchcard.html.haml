@@ -22,6 +22,7 @@
                             maxDate: new Date(),
                             domain: "month",
                             subDomain: "day",
+                            itemName: ["item", "hours"],
                             cellSize: 12,
                             range: 7,
                             rowLimit: 7,
@@ -32,8 +33,13 @@
                             domainLabelFormat: "%b",
                             label: {
                                 position: "top"
+                            },
+                            onClick: function(date, nb) {
+                                $("#record_area").html("<h4>" + date + "</h4>");
                             }
-                        
+                            
                         });
                         
         %hr
+        
+        #record_area
