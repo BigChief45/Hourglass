@@ -1,8 +1,13 @@
 .row
     .col-md-12
-        %h3= @card.name
+        %h3
+            = @card.name
+            .pull-right
+                = link_to new_punchcard_record_path(@card), class: 'btn btn-default btn-xs' do
+                    %i.fa.fa-calendar-check-o
+                    Punch
 
-        %p= @card.description
+        %p.text-center= @card.description
 
         // INSERT CAL HEAT MAP
         .row
@@ -11,6 +16,7 @@
                     :javascript
                         var cal = new CalHeatMap();
                         cal.init({
+                            data: 'punchcards/1/records.json',
                             start: new Date().setMonth(new Date().getMonth() - 6),
                             minDate: new Date().setMonth(new Date().getMonth() - 6),
                             maxDate: new Date(),

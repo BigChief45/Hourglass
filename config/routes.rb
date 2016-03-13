@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   resources :punchcards do
     resources :records
   end
+  
+  get 'records', to: 'punchcards#records'
 
 end

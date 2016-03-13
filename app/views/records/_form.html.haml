@@ -1,0 +1,20 @@
+= form_for [@card, @record] do |f|
+
+    // ERROR MESSAGES
+    = render "shared/errors", model: @record
+    
+    %p
+        %b Punchcard:
+        = @card.name
+
+    .form-group
+        = f.label :date
+        = f.date_select :date, class: 'form-control'
+    
+    .form-group
+        = f.label :description
+        = f.text_area :description, rows: 4, class: 'form-control'
+        
+    .form-group
+        = f.submit ( f.object.new_record? ? "Punch Record" : "Save Changes"), class: 'btn btn-success'
+        = link_to 'Cancel', punchcards_path, class: 'btn btn-default'
