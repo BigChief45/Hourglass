@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-03-13 07:18:21
+  punchcard_id: 1
+  description: MyText
+
+two:
+  date: 2016-03-13 07:18:21
+  punchcard_id: 1
+  description: MyText

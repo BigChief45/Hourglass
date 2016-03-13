@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   
   root 'punchcards#index'
 
-  resources :punchcards
+  resources :punchcards do
+    resources :records
+  end
 
 end
