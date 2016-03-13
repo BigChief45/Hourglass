@@ -1,1 +1,33 @@
-%h3= @card.name
+.row
+    .col-md-12
+        %h3= @card.name
+
+        %p= @card.description
+
+        // INSERT CAL HEAT MAP
+        .row
+            .col-md-6.text-center
+                #cal-heatmap
+                    :javascript
+                        var cal = new CalHeatMap();
+                        cal.init({
+                            start: new Date().setMonth(new Date().getMonth() - 6),
+                            minDate: new Date().setMonth(new Date().getMonth() - 6),
+                            maxDate: new Date(),
+                            domain: "month",
+                            subDomain: "day",
+                            cellSize: 12,
+                            range: 7,
+                            rowLimit: 7,
+                            legendVerticalPosition: "bottom",
+                            legendHorizontalPosition: "right",
+                            tooltip: true,
+                            weekStartOnMonday: false,
+                            domainLabelFormat: "%b",
+                            label: {
+                                position: "top"
+                            }
+                        
+                        });
+                        
+        %hr
