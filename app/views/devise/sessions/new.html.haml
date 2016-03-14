@@ -8,13 +8,13 @@
     .form-group
         .input-group
             %span.input-group-addon
-                %i.glyphicon.glyphicon-user
+                %i.fa.fa-user
             = f.email_field :email, autofocus: true, placeholder: 'E-mail address', class: 'form-control'
 
     .form-group
         .input-group
             %span.input-group-addon
-                %i.glyphicon.glyphicon-lock
+                %i.fa.fa-lock
             = f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'form-control'
 
     .form-group.text-center
