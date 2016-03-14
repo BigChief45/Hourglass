@@ -12,11 +12,17 @@
         // INSERT CAL HEAT MAP
         .row
             .col-md-6.text-center
-                #cal-heatmap
+                #cal-heatmap{ "data-id" => "#{@card.id}" }
                     :javascript
+                        /* Get the corresponding Punchcard ID */
+                        var punchcard_id = $("#cal-heatmap").attr('data-id');
+                        
+                        /* Construct a REST path for this punchcard */
+                        var path = Routes.punchcard_records_path(punchcard_id, {format: 'json'});
+                        
                         var cal = new CalHeatMap();
                         cal.init({
-                            data: 'punchcards/1/records.json',
+                            data: path,
                             start: new Date().setMonth(new Date().getMonth() - 6),
                             minDate: new Date().setMonth(new Date().getMonth() - 6),
                             maxDate: new Date(),
