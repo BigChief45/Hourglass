@@ -6,15 +6,23 @@ class RecordsController < ApplicationController
     
     def index
         @records = @card.records
-        hash = {}
         
+        # We need to convert the available @records data into the corresponding
+        # data format for Cal-heatmap, which is:
+        #
+        # {
+        # 	"timestamp": value,
+        # 	"timestamp2": value2,
+        # 	...
+        # }
+        hash = {}
         @records.each do |r|
             hash[r.date.to_i] = r.hours
         end
         
         respond_to do |format|
+            # Return the hash with the correct format
             format.json { render :json => hash }
-            #format.json { render :json => @records.map { |model| {:timestamp => model.date.to_i, :value => 30 } } }
         end
     end
     
