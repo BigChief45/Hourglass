@@ -42,6 +42,26 @@ class RecordsController < ApplicationController
         end
     end
     
+    def edit
+    end
+    
+    def update
+        respond_to do |format|
+            if @record.update(record_params)
+                format.html { redirect_to punchcards_path, notice: 'Record was successfully updated.' }
+            else
+                format.html { render :edit }
+            end
+        end
+    end
+    
+    def destroy
+        @record.destroy
+        respond_to do |format|
+            format.html { redirect_to punchcards_path, notice: 'Record was successfully deleted.' }
+        end
+    end
+    
     private
     
         def find_punchcard

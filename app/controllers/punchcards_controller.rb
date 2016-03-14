@@ -29,6 +29,26 @@ class PunchcardsController < ApplicationController
         end
     end
     
+    def edit
+    end
+    
+    def update
+        respond_to do |format|
+            if @card.update(punchcard_params)
+                format.html { redirect_to punchcards_path, notice: 'Punchcard was successfully updated.' }
+            else
+                format.html { render :edit }
+            end
+        end
+    end
+    
+    def destroy
+        @card.destroy
+        respond_to do |format|
+            format.html { redirect_to punchcards_path, notice: 'Punchcard was successfully deleted.' }
+        end
+    end
+    
     private
     
         def find_punchcard
