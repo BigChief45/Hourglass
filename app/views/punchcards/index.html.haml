@@ -9,9 +9,9 @@
                         %i.fa.fa-plus
                         New
             
-            %ul.list-group
+            .list-group
                 - @cards.each do |card|
-                    = link_to card, class: 'list-group-item', :remote => true do
+                    = link_to card, :class => 'list-group-item', :remote => true do
                         %i{ class: "fa fa-#{card.icon}" }
                         %span
                         = card.name
