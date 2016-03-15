@@ -12,6 +12,11 @@ class PunchcardsController < ApplicationController
     end
     
     def show
+        @records = @card.records.all.order("created_at DESC").limit(5)
+        
+        # Records Pagination
+        #@records = @records.paginate(:page => params[:page], :per_page => 1)
+        
         respond_to do |format|
             format.js
         end

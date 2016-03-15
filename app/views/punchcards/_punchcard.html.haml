@@ -55,7 +55,7 @@
         #record_area
             %h4 Latest Records
             
-            - @card.records.each do |record|
+            - @records.each do |record|
                 %h5
                     = link_to record.date.strftime("%A %B %d %Y"), [:edit, @card, record]
                     %small
