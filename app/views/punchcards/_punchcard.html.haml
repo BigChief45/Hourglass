@@ -53,10 +53,10 @@
         %hr
         
         #record_area
-            %h4 Latest Records
+            %h3 Latest Records
             
             - @records.each do |record|
-                %h5
+                %h4
                     = link_to record.date.strftime("%A %B %d %Y"), [:edit, @card, record]
                     %small
                         (
@@ -67,7 +67,7 @@
                     .pull-right
                         = link_to [@card, record], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' do
                             %i.fa.fa-trash
-                    
+                
                 %p= auto_link(simple_format h record.description)
                 
                 %hr
