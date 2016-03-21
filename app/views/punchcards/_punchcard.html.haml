@@ -13,7 +13,7 @@
                 = link_to punchcard_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' do
                     %i.fa.fa-trash
 
-        %p.text-center= @card.description
+        %p.text-center= auto_link(@card.description)
 
         // INSERT CAL HEAT MAP
         .row
@@ -68,6 +68,6 @@
                         = link_to [@card, record], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' do
                             %i.fa.fa-trash
                     
-                %p= simple_format h record.description
+                %p= auto_link(simple_format h record.description)
                 
                 %hr
