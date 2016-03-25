@@ -64,7 +64,9 @@
                         %i.fa.fa-clock-o
                         )
                     
-                    .pull-right
+                    .btn-group.pull-right
+                        = link_to [:edit, @card, record], class: 'btn btn-xs btn-default' do
+                            %i.fa.fa-pencil
                         = link_to [@card, record], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' do
                             %i.fa.fa-trash
                 
