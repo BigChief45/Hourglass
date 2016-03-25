@@ -30,6 +30,7 @@ gem "js-routes"
 gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
 gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap'
+gem 'rails_autolink'
 gem 'redcarpet'
 
 group :development, :test do
