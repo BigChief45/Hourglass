@@ -2,7 +2,7 @@
 
 %html
 %head
-    %title PunchCard
+    %title Hourglass
     
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -21,6 +21,8 @@
     = stylesheet_link_tag '//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css'
     
     = csrf_meta_tags
+    
+    = favicon_link_tag 'favicon.ico'
     
 %body
     .container
