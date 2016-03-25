@@ -22,7 +22,7 @@
             %a{ href: 'https://guides.github.com/features/mastering-markdown/', target: '_blank'} 
                 %i.fa.fa-font
                 Styling with Markdown is supported
-        = f.text_area :description, rows: 4, class: 'form-control'
+        = f.text_area :description, rows: 5, style: "resize: vertical;", class: 'form-control'
         
     .form-group
         = f.submit ( f.object.new_record? ? "Punch Record" : "Save Changes"), class: 'btn btn-success'
