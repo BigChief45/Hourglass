@@ -30,6 +30,9 @@ class RecordsController < ApplicationController
         @record = @card.records.build
     end
     
+    def show
+    end
+    
     def create
         @record = @card.records.build(record_params)
        

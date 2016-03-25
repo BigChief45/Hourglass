@@ -57,7 +57,7 @@
             
             - @records.each do |record|
                 %h4
-                    = link_to record.date.strftime("%A %B %d %Y"), [:edit, @card, record]
+                    = link_to record.date.strftime("%A %B %d %Y"), [@card, record]
                     %small
                         (
                         = record.hours

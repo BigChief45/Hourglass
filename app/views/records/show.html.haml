@@ -1,0 +1,17 @@
+%h3= @record.punchcard.name
+
+%h4
+    = @record.date.strftime("%A %B %d %Y")
+    %small
+        (
+        = @record.hours
+        %i.fa.fa-clock-o
+        )
+                        
+= markdown(@record.description)
+
+%hr
+
+= link_to root_path do
+    %i.fa.fa-arrow-left
+    Back
