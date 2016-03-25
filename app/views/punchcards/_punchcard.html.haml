@@ -68,6 +68,7 @@
                         = link_to [@card, record], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' do
                             %i.fa.fa-trash
                 
-                %p= auto_link(simple_format h record.description)
+                = markdown(record.description)
+                //%p= auto_link(simple_format h record.description)
                 
                 %hr
