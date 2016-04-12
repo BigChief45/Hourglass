@@ -17,38 +17,74 @@
 
         // INSERT CAL HEAT MAP
         .row
-            .col-md-6.col-md-offset-1
-                #cal-heatmap{ "data-id" => "#{@card.id}" }
-                    :javascript
-                        /* Get the corresponding Punchcard ID */
-                        var punchcard_id = $("#cal-heatmap").attr('data-id');
+            .col-md-12
+                .panel.panel-default
+                    .panel-body
+                        .row
+                            .col-md-6.col-md-offset-1
+                                #cal-heatmap{ "data-id" => "#{@card.id}" }
+                                    :javascript
+                                        /* Get the corresponding Punchcard ID */
+                                        var punchcard_id = $("#cal-heatmap").attr('data-id');
+                                        
+                                        /* Construct a REST path for this punchcard */
+                                        var path = Routes.punchcard_records_path(punchcard_id, {format: 'json'});
+                                        
+                                        var cal = new CalHeatMap();
+                                        cal.init({
+                                            data: path,
+                                            start: new Date().setMonth(new Date().getMonth() - 6),
+                                            minDate: new Date().setMonth(new Date().getMonth() - 6),
+                                            maxDate: new Date(),
+                                            domain: "month",
+                                            subDomain: "day",
+                                            itemName: ["hour", "hours"],
+                                            cellSize: 12,
+                                            range: 7,
+                                            rowLimit: 7,
+                                            legendVerticalPosition: "bottom",
+                                            legendHorizontalPosition: "right",
+                                            tooltip: true,
+                                            weekStartOnMonday: false,
+                                            domainLabelFormat: "%b",
+                                            label: {
+                                                position: "top"
+                                            },
+                                            legend: [1, 3, 5]
+                                                    
+                                                });
                         
-                        /* Construct a REST path for this punchcard */
-                        var path = Routes.punchcard_records_path(punchcard_id, {format: 'json'});
-                        
-                        var cal = new CalHeatMap();
-                        cal.init({
-                            data: path,
-                            start: new Date().setMonth(new Date().getMonth() - 6),
-                            minDate: new Date().setMonth(new Date().getMonth() - 6),
-                            maxDate: new Date(),
-                            domain: "month",
-                            subDomain: "day",
-                            itemName: ["hour", "hours"],
-                            cellSize: 12,
-                            range: 7,
-                            rowLimit: 7,
-                            legendVerticalPosition: "bottom",
-                            legendHorizontalPosition: "right",
-                            tooltip: true,
-                            weekStartOnMonday: false,
-                            domainLabelFormat: "%b",
-                            label: {
-                                position: "top"
-                            },
-                            legend: [1, 3, 5]
-                            
-                        });
+                        // STATS
+                        .row.cal-footer
+                            .col-md-6.cal-footer-column
+                                .text-center
+                                    %h5
+                                        %small Total hours
+                                    
+                                    %big.lead
+                                        = @card.total_hours
+                                        hours
+                                        
+                                    %h5
+                                        %small
+                                            = @card.records.first.created_at.strftime("%B %d %Y")
+                                            –
+                                            = Time.current.strftime("%B %d %Y")
+                                    
+                            .col-md-6
+                                .text-center
+                                    %h5
+                                        %small Total Entries
+                                    
+                                    %big.lead
+                                        = @card.records.count
+                                        entries
+                                        
+                                    %h5
+                                        %small
+                                            = @card.records.first.created_at.strftime("%B %d %Y")
+                                            –
+                                            = Time.current.strftime("%B %d %Y")
                         
         %hr
         
