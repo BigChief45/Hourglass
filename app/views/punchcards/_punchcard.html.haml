@@ -91,22 +91,22 @@
         #record_area
             %h3 Latest Records
             
-            - @records.each do |record|
-                %h4
-                    = link_to record.date.strftime("%A %B %d %Y"), [@card, record]
-                    %small
-                        (
-                        = record.hours
-                        %i.fa.fa-clock-o
-                        )
-                    
-                    .btn-group.pull-right
-                        = link_to [:edit, @card, record], class: 'btn btn-xs btn-default' do
-                            %i.fa.fa-pencil
-                        = link_to [@card, record], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' do
-                            %i.fa.fa-trash
-                
-                = simple_format h markdown(record.description)
-                
-                
-                %hr
+            %ul.list-group
+                - @records.each do |record|
+                    %li.list-group-item
+                        %h4.list-group-item-heading
+                            = link_to record.date.strftime("%A %B %d %Y"), [@card, record]
+                            %small
+                                (
+                                = record.hours
+                                %i.fa.fa-clock-o
+                                )
+                            
+                            .btn-group.pull-right
+                                = link_to [:edit, @card, record], class: 'btn btn-xs btn-default' do
+                                    %i.fa.fa-pencil
+                                = link_to [@card, record], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' do
+                                    %i.fa.fa-trash
+                        
+                        .list-group-item-text
+                            = simple_format h markdown(record.description)
