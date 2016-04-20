@@ -90,7 +90,13 @@
         %hr
         
         #record_area
-            %h3 Latest Records
+            %h3 Latest Entries
+            
+            .text-center
+                %p.small
+                    = link_to punchcard_records_path(@card) do
+                        %i.fa.fa-eye
+                        View All Entries
             
             %ul.list-group
                 - @records.each do |record|

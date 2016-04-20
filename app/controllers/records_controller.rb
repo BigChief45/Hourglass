@@ -23,6 +23,7 @@ class RecordsController < ApplicationController
         respond_to do |format|
             # Return the hash with the correct format
             format.json { render :json => hash }
+            format.html
         end
     end
     

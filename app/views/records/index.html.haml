@@ -1,0 +1,27 @@
+%h3
+    = "#{@card.name} - All Entries"
+    
+%table.table.table-responsive.table-striped.table-hover
+    %thead
+        %tr
+            %th #
+            %th Date
+            %th Description
+            %th Hours
+            %th
+    %tbody
+        - @records.each_with_index do |record, index|
+            %tr
+                %td= index+1
+                %td= record.date.strftime("%A %B %d %Y")
+                %td= truncate((simple_format h markdown(record.description)), :length => 17)
+                %td= record.hours
+                %td
+                    .btn-group
+                        = link_to [@card, record], class: 'btn btn-xs btn-default' do
+                            %i.fa.fa-eye
+                        = link_to [:edit, @card, record], class: 'btn btn-xs btn-default' do
+                            %i.fa.fa-pencil
+                        = link_to [@card, record], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' do
+                            %i.fa.fa-trash
+    
