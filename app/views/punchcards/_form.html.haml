@@ -15,13 +15,13 @@
                 = f.text_field :description, class: 'form-control input-sm'
             
             .form-group
-                = f.label :icon
+                = f.label :icon, 'Emoji'
                 %br
                 %p.small
-                    %a{ href: 'https://fortawesome.github.io/Font-Awesome/icons/', target: '_blank' } 
+                    %a{ href: 'http://www.emoji-cheat-sheet.com/', target: '_blank' } 
                         %i.fa.fa-eye
-                        Browse Icons
-                = f.text_field :icon, class: 'form-control input-sm', placeholder: "Example: 'music'"
+                        Browse Emojis
+                = f.text_field :icon, class: 'form-control input-sm', placeholder: "Example: :cat:"
                 
                 
             .form-group

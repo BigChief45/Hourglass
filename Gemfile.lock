@@ -82,6 +82,7 @@ GEM
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
+    gemoji (2.1.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -218,6 +219,7 @@ DEPENDENCIES
   database_cleaner
   devise
   factory_girl_rails
+  gemoji
   haml
   jbuilder (~> 2.0)
   jquery-rails
