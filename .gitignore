@@ -16,5 +16,3 @@
 !/log/.keep
 /tmp
 
-# Ignore emojis directory
-/public/images/emoji
