@@ -12,9 +12,8 @@ A Punchcard represents an activity which you want to track the time (in hours) s
 ### Recording Time
 For each punchcard, you can create records that specify the amount of time spent doing the activity, and a description of what was done. These records will be stored in the database, and will later be retrieved by Cal-HeatMap as JSON to display it in the calendar.
 
-<p align="center">
 ![Calendar Screenshot](https://raw.githubusercontent.com/BigChief45/Hourglass/master/public/screenshots/calendar.jpeg)
-</p>
+
 ## TODO
 
 Many improvements can be made, and I am considering implementing them in the future. For example:
