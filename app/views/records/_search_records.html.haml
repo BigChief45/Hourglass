@@ -1,0 +1,14 @@
+.well
+    = search_form_for @q, url: punchcard_records_path do |f|
+    
+        .row
+            .col-md-10
+                .form-group
+                    = f.label :description_cont, 'Search Entries'
+                    = f.search_field :description_cont, placeholder: 'Example: Harry Potter and the Chamber of Secrets', class: 'form-control input-sm'
+
+            .col-md-2
+                .form-group
+                    %br
+                    = f.submit 'Search', class: 'btn btn-primary btn-sm'
+                        
