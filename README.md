@@ -18,6 +18,6 @@ For each punchcard, you can create records that specify the amount of time spent
 
 Many improvements can be made, and I am considering implementing them in the future. For example:
 
-- Search records based on description.
+- ~~Search records based on description.~~
 - Goals and Milestones implementation
 - Improved user interface.
