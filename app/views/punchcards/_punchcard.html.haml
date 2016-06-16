@@ -1,6 +1,7 @@
 .row
     .col-md-12
         %h3
+            %span= emojify @card.icon
             = @card.name
             .btn-group.pull-right
                 = link_to new_punchcard_record_path(@card), class: 'btn btn-sm btn-default' do
@@ -60,7 +61,7 @@
                                 - unless @card.records.first.nil?
                                     .text-center
                                         %h5
-                                            %small Total hours
+                                            %small Total Hours
                                         
                                         %big.lead
                                             = @card.total_hours
@@ -105,10 +106,9 @@
                         %h4.list-group-item-heading
                             = link_to record.date.strftime("%A %B %d %Y"), [@card, record]
                             %small
-                                (
-                                = record.hours
                                 %i.fa.fa-clock-o
-                                )
+                                = record.hours
+                                
                             
                             .btn-group.pull-right
                                 = link_to [:edit, @card, record], class: 'btn btn-xs btn-default' do

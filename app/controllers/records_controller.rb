@@ -5,7 +5,15 @@ class RecordsController < ApplicationController
     before_action :find_record, only: [:show, :edit, :update, :destroy]
     
     def index
-        @records = @card.records
+        # Ransack Search
+        @q = Record.ransack(params[:q])
+        @records = @q.result(distinct: true).order("created_at DESC")
+        
+        # Pagination
+        @records = @records.paginate(:page => params[:page], :per_page => 10)
+        
+        # JSON Record data For Cal Heat Map
+        @json_records = @card.records
         
         # We need to convert the available @records data into the corresponding
         # data format for Cal-heatmap, which is:
@@ -16,7 +24,7 @@ class RecordsController < ApplicationController
         # 	...
         # }
         hash = {}
-        @records.each do |r|
+        @json_records.each do |r|
             hash[r.date.to_i] = r.hours
         end
         
