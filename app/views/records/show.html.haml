@@ -1,13 +1,12 @@
-%h3= @record.punchcard.name
+.page-header
+    %h2= @record.punchcard.name
 
 %h4
     = @record.date.strftime("%A %B %d %Y")
     %small
-        (
-        = @record.hours
         %i.fa.fa-clock-o
-        )
-                        
+        = @record.hours
+        
 = simple_format h markdown(@record.description)
 
 %hr

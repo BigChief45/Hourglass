@@ -4,7 +4,7 @@ class PunchcardsController < ApplicationController
     before_action :find_punchcard, only: [:show, :edit, :update, :destroy]
     
     def index
-       @cards = current_user.punchcards.all 
+        @cards = current_user.punchcards.all
     end
     
     def new

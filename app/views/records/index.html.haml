@@ -1,21 +1,29 @@
-%h3
-    = "#{@card.name} - All Entries"
-    
+.page-header
+    %h2
+        = "#{@card.name} - All Entries"
+
+/ SEARCH
+.row
+    .col-md-12
+        = render 'search_records'
+        
+%hr
+
 %table.table.table-responsive.table-striped.table-hover
     %thead
         %tr
             %th #
             %th Date
-            %th Description
             %th Hours
             %th
     %tbody
         - @records.each_with_index do |record, index|
             %tr
                 %td= index+1
-                %td= record.date.strftime("%A %B %d %Y")
-                %td= truncate((simple_format h markdown(record.description)), :length => 17)
-                %td= record.hours
+                %td= link_to record.date.strftime("%A %B %d %Y"), [@card, record]
+                %td
+                    %i.fa.fa-clock-o
+                    = record.hours
                 %td
                     .btn-group
                         = link_to [@card, record], class: 'btn btn-xs btn-default' do
@@ -24,4 +32,7 @@
                             %i.fa.fa-pencil
                         = link_to [@card, record], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' do
                             %i.fa.fa-trash
-    
+
+/ PAGINATION
+.text-center
+    = will_paginate @records, renderer: BootstrapPagination::Rails, class: 'pagination-sm'
