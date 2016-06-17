@@ -1,7 +1,7 @@
 class RecordsController < ApplicationController
     before_action :authenticate_user!
     
-    before_action :find_punchcard
+    before_action :find_punchcard, except: [:search_record]
     before_action :find_record, only: [:show, :edit, :update, :destroy]
     
     def index
@@ -71,6 +71,14 @@ class RecordsController < ApplicationController
         @record.destroy
         respond_to do |format|
             format.html { redirect_to punchcards_path, notice: 'Record was successfully deleted.' }
+        end
+    end
+    
+    def search_record
+        record = Record.find_by_date(params[:search])
+       
+        respond_to do |format|
+            format.json { render json: record.id }
         end
     end
     
