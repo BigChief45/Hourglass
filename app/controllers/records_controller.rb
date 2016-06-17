@@ -75,6 +75,8 @@ class RecordsController < ApplicationController
     end
     
     def search_record
+        # Searches for a record using its date attribute.
+        # Used with AJAX calls within CalHeatMap events
         record = Record.find_by_date(params[:search])
        
         respond_to do |format|

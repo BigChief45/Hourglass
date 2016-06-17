@@ -57,10 +57,9 @@
                                             onClick: function(date, nb) {
                                         		// Parse the date for ActiveRecord
                                         		date = moment(date).format('YYYY-MM-DD HH:mm:ss');
-
+                                    
                                         		/* Make an AJAX Call to retrieve the ActiveRecord Record object
                                         		   associated with the date of the cell */
-                                        		   
                                         		if ( nb != null ) {
                                         		    $.ajax({
                                                         url: '/search_record',
