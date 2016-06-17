@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :records
   end
   
+  get 'search_record', to: 'records#search_record'
   get 'records', to: 'punchcards#records'
 
 end

@@ -5,11 +5,12 @@
     
     %p
         %b Punchcard:
+        = emojify @card.icon
         = @card.name
 
     .form-group
         = f.label :date
-        = f.date_select :date, class: 'form-control'
+        = f.date_select :date
     
     .form-group
         = f.label :hours
