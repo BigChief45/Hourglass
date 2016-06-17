@@ -63,7 +63,7 @@
                                         		if ( nb != null ) {
                                         		    $.ajax({
                                                         url: '/search_record',
-                                                        data: {search: date},
+                                                        data: {record_date: date, pcard_id: punchcard_id},
                                                         dataType: 'json'
                                                     }).done(function (data) {
                                                         // Redirect to the obtained record show view

@@ -75,9 +75,9 @@ class RecordsController < ApplicationController
     end
     
     def search_record
-        # Searches for a record using its date attribute.
+        # Searches for a record using its date attribute and punchcard.
         # Used with AJAX calls within CalHeatMap events
-        record = Record.find_by_date(params[:search])
+        record = Record.find_by(date: params[:record_date], punchcard_id: params[:pcard_id])
        
         respond_to do |format|
             format.json { render json: record.id }
