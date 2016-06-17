@@ -60,7 +60,7 @@ class RecordsController < ApplicationController
     def update
         respond_to do |format|
             if @record.update(record_params)
-                format.html { redirect_to punchcards_path, notice: 'Record was successfully updated.' }
+                format.html { redirect_to @record, notice: 'Record was successfully updated.' }
             else
                 format.html { render :edit }
             end
