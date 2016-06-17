@@ -9,6 +9,17 @@
         
 = simple_format h markdown(@record.description)
 
+.text-center
+    %ul.list-inline
+        %li
+            = link_to [:edit, @card, @record] do
+                %i.fa.fa-pencil
+                Edit Record
+        %li
+            = link_to [@card, @record], method: :delete, data: { confirm: 'Are you sure?' } do
+                %i.fa.fa-trash
+                Delete Record
+
 %hr
 
 = link_to root_path do
