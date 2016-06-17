@@ -1,5 +1,7 @@
 .page-header
-    %h2= @record.punchcard.name
+    %h2
+        %span= emojify @record.punchcard.icon
+        = @record.punchcard.name
 
 %h4
     = @record.date.strftime("%A %B %d %Y")
