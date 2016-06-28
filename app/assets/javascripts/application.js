@@ -16,4 +16,5 @@
 //= require js-routes
 //= require moment
 //= require bootstrap-datetimepicker
+//= require bootstrap-wysihtml5
 //= require_tree .

@@ -13,7 +13,7 @@
 
 .row
     .col-md-12
-        = simple_format h markdown(@record.description)
+        = @record.description.html_safe
         
         / PAGING
         %ul.pager
