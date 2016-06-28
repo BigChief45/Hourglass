@@ -14,4 +14,13 @@ $(function () {
                 }
     });
     
+    // RICH TEXT TEXT AREA
+    $('.wysihtml5').each(function(i, elem) {
+        $(elem).wysihtml5({'toolbar': {
+            'fa': true,
+            'color': true
+            }
+        });
+    });
+    
 });

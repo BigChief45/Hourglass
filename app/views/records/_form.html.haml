@@ -18,12 +18,7 @@
     
     .form-group
         = f.label :description
-        %br
-        %p.small
-            %a{ href: 'https://guides.github.com/features/mastering-markdown/', target: '_blank'} 
-                %i.fa.fa-font
-                Styling with Markdown is supported
-        = f.text_area :description, rows: 5, style: "resize: vertical;", class: 'form-control'
+        = f.text_area :description, rows: 10, style: "resize: vertical;", class: 'form-control wysihtml5', placeholder: 'Enter record description here...'
         
     .form-group
         = f.submit ( f.object.new_record? ? "Punch Record" : "Save Changes"), class: 'btn btn-success'
