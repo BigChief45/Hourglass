@@ -36,3 +36,9 @@
 / PAGINATION
 .text-center
     = will_paginate @records, renderer: BootstrapPagination::Rails, class: 'pagination-sm'
+    
+%hr
+
+= link_to root_path do
+    %i.fa.fa-arrow-left
+    Back
