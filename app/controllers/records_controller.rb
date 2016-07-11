@@ -85,7 +85,7 @@ class RecordsController < ApplicationController
     end
     
     def todays_report
-       @todays_records = Record.where("created_at >= ?", Time.zone.now.beginning_of_day)
+       @todays_records = Record.where("date >= ?", DateTime.now.to_date.strftime('%Y-%m-%d'))
     end
     
     private
