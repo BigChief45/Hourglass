@@ -1,12 +1,12 @@
 class RecordsController < ApplicationController
     before_action :authenticate_user!
     
-    before_action :find_punchcard, except: [:search_record]
+    before_action :find_punchcard, except: [:search_record, :todays_report]
     before_action :find_record, only: [:show, :edit, :update, :destroy]
     
     def index
         # Ransack Search
-        @q = Record.ransack(params[:q])
+        @q = @card.records.ransack(params[:q])
         @records = @q.result(distinct: true).order("created_at DESC")
         
         # Pagination
@@ -82,6 +82,10 @@ class RecordsController < ApplicationController
         respond_to do |format|
             format.json { render json: record.id }
         end
+    end
+    
+    def todays_report
+       @todays_records = Record.where("created_at >= ?", Time.zone.now.beginning_of_day)
     end
     
     private

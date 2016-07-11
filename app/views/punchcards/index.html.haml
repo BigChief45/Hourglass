@@ -1,3 +1,6 @@
+.row.text-center
+    %p Today is
+
 .row
     .col-md-4
         .panel.panel-default
@@ -14,7 +17,11 @@
                     = link_to card, :class => 'list-group-item', :remote => true do
                         %span= emojify card.icon
                         %span= card.name
-                
+        
+        .ul.list-inline.text-center
+            %li.small
+                = "#{Time.now.strftime("%A %B %d %Y")} - "
+                = link_to "View Today's Report", todays_report_path
     
     .col-md-8
         // CALENDAR AREA
