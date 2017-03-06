@@ -1,26 +1,25 @@
 .row
-    .col-md-4
-        .panel.panel-default
-            .panel-heading
-                %b My Punchcards
-                
-                .pull-right
-                    = link_to new_punchcard_path, class: 'btn btn-xs btn-success' do
-                        %i.fa.fa-plus
-                        New
-            
-            .list-group
-                - @cards.each do |card|
-                    = link_to card, :class => 'list-group-item', :remote => true do
-                        %span= emojify card.icon
-                        %span= card.name
-        
-        .ul.list-inline.text-center
-            %li.small
-                = "#{Time.now.strftime("%A %B %d %Y")} - "
-                = link_to "View Today's Report", todays_report_path
-    
-    .col-md-8
-        // CALENDAR AREA
-        #punchcard_area
-        
+  .col-md-4
+    .panel.panel-default
+      .panel-heading
+        %b My Punchcards
+
+        .pull-right
+          = link_to new_punchcard_path, class: 'btn btn-xs btn-success' do
+            %i.fa.fa-plus
+            New
+
+      .list-group
+        - @cards.each do |card|
+          = link_to card, :class => 'list-group-item', :remote => true do
+            %span= emojify card.icon
+            %span= card.name
+
+    .ul.list-inline.text-center
+      %li.small
+        = "#{Time.now.strftime("%A %B %d %Y")} - "
+        = link_to "View Today's Report", todays_report_path
+
+  .col-md-8
+    // CALENDAR AREA
+    #punchcard_area

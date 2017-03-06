@@ -2,41 +2,44 @@
 
 %html
 %head
-    %title Hourglass
-    
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    
-    / Bootstrap
-    = stylesheet_link_tag 'https://bootswatch.com/cerulean/bootstrap.min.css'
-    = javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', "data-turbolinks-eval" => false
-    
-    / Font Awesome
-    = stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
-    
-    / Cal-Heat Map CDN
-    = javascript_include_tag '//d3js.org/d3.v3.min.js'
-    = javascript_include_tag '//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js'
-    = stylesheet_link_tag '//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css'
-    
-    = csrf_meta_tags
-    
-    = favicon_link_tag 'favicon.ico'
-    
+  %title Hourglass
+
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
+  / Bootstrap
+  = stylesheet_link_tag 'https://bootswatch.com/cerulean/bootstrap.min.css'
+  = javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', "data-turbolinks-eval" => false
+
+  / Font Awesome
+  = stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+
+  / Cal-Heat Map CDN
+  = javascript_include_tag '//d3js.org/d3.v3.min.js'
+  = javascript_include_tag '//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js'
+  = stylesheet_link_tag '//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css'
+
+  = csrf_meta_tags
+
+  = favicon_link_tag 'favicon.ico'
+
 %body
-    .container
+  .container
+    %br
+    %br
+    .row
+      .col-md-10.col-md-offset-1
+        // ALERTS
+        = render 'layouts/alerts'
+
+        // CONTENT
         .row
-            .col-md-10.col-md-offset-1
-                // NAVBAR
-                = render 'layouts/navbar'
-    
-                // ALERTS
-                = render 'layouts/alerts'
-                
-                // CONTENT
-                .panel.panel-default
-                    .panel-body
-                        = yield
-        
-                // FOOTER
-                /= render 'layouts/footer'
+          .col-md-12
+            %p.small
+              Welcome back
+              %strong= current_user.email
+              \-
+              = link_to 'Logout', logout_path, method: :delete
+        .panel.panel-default
+          .panel-body
+            = yield
