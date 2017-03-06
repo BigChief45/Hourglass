@@ -16,14 +16,20 @@
 
     /%p.text-center= auto_link(@card.description)
 
-    // CalHeatMap
     .row
       .col-md-12
         .panel.panel-default
           .panel-body
             .row
               .col-md-6.col-md-offset-1
+                // CalHeatMap
                 #cal-heatmap{ "data-id" => "#{@card.id}" }
+                .btn-group.btn-group-xs
+                  #cal-previous.btn.btn-default
+                    %i.fa.fa-arrow-left
+                  #cal-next.btn.btn-default
+                    %i.fa.fa-arrow-right
+
 
             // STATS
             .row.cal-footer
@@ -81,13 +87,15 @@
   cal.init({
     data: path,
     start: new Date().setMonth(new Date().getMonth() - 6),
-    minDate: new Date().setMonth(new Date().getMonth() - 6),
+    //minDate: new Date().setMonth(new Date().getMonth() - 6),
     maxDate: new Date(),
     domain: "month",
     subDomain: "day",
     itemName: ["hour", "hours"],
     cellSize: 12,
     range: 7,
+    previousSelector: "#cal-previous",
+    nextSelector: "#cal-next",
     rowLimit: 7,
     highlight: "now",
     legendVerticalPosition: "bottom",
