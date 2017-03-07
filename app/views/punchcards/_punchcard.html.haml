@@ -5,7 +5,7 @@
       = @card.name
       .btn-group.pull-right
         = link_to new_punchcard_record_path(@card), class: 'btn btn-sm btn-default' do
-          %i.fa.fa-calendar-check-o
+          %i.fa.fa-calendar-times-o
           Punch
 
         = link_to [:edit, @card], class: 'btn btn-sm btn-default' do
@@ -64,7 +64,8 @@
 
     #record_area
       .panel.panel-primary
-        .panel-heading Latest Entries
+        .panel-heading
+          %strong Latest Entries
         %ul.list-group
           - @records.each do |record|
             %li.list-group-item
