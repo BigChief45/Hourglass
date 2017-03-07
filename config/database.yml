@@ -1,10 +1,10 @@
 default: &default
-      adapter: postgresql
-      encoding: unicode
-      pool: 5
-      username: <%= ENV['USERNAME'] %>
-      password: <%= ENV['PASSWORD'] %>
-      host:     <%= ENV['IP'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: <%= ENV['USERNAME'] %>
+  password: <%= ENV['PASSWORD'] %>
+  host:     <%= ENV['IP'] %>
 
 development:
   <<: *default
@@ -12,7 +12,7 @@ development:
 
 test:
   <<: *default
-  database: app_test
+  database: travis_ci_test
 
 production:
   <<: *default
