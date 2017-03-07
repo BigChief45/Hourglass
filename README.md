@@ -1,4 +1,4 @@
-# About Hourglass
+# Hourglass [![Build Status](https://travis-ci.org/BigChief45/Hourglass.svg?branch=master)](https://travis-ci.org/BigChief45/Hourglass)
 
 Hourglass is my personal time tracking application, developed using Ruby on Rails. It integrates the [cal-heatmap](http://cal-heatmap.com/) JavaScript library to display time spent on each activity, similar to Github's contributions chart.
 
