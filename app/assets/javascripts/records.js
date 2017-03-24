@@ -23,4 +23,18 @@ $(function () {
     });
   });
 
+  // Bootstrap Slider
+  $("#record_hours").slider({
+    id: 'hoursSlider',
+    tooltip: 'hide',
+    value: 1,
+    step: 1,
+    min: 1,
+    max: 24,
+
+    ticks: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    ticks_labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+    ticks_snap_bounds: 1
+  });
+
 });
