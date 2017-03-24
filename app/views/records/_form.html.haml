@@ -1,25 +1,25 @@
 = form_for [@card, @record] do |f|
 
-    // ERROR MESSAGES
-    = render "shared/errors", model: @record
-    
-    %p
-        %b Punchcard:
-        = emojify @card.icon
-        = @card.name
+  // ERROR MESSAGES
+  = render "shared/errors", model: @record
 
-    .form-group
-        = f.label :date
-        = f.date_select :date
-    
-    .form-group
-        = f.label :hours
-        = f.number_field :hours, min: 1, :value => @record.hours, class: 'form-control'
-    
-    .form-group
-        = f.label :description
-        = f.text_area :description, autofocus: true, rows: 10, style: "resize: vertical;", class: 'form-control wysihtml5', placeholder: 'Enter record description here...'
-        
-    .form-group
-        = f.submit ( f.object.new_record? ? "Punch Record" : "Save Changes"), class: 'btn btn-success'
-        = link_to 'Cancel', punchcards_path, class: 'btn btn-default'
+  %p
+    %b Punchcard:
+    = emojify @card.icon
+    = @card.name
+
+  .form-group
+    = f.label :date
+    = f.date_select :date
+
+  .form-group
+    = f.label :hours
+    = f.number_field :hours, min: 1, :value => @record.hours, class: 'form-control'
+
+  .form-group
+    = f.label :description
+    = f.text_area :description, autofocus: true, rows: 10, style: "resize: vertical;", class: 'form-control wysihtml5', placeholder: 'Enter record description here...'
+
+  .form-group
+    = f.submit ( f.object.new_record? ? "Punch Record" : "Save Changes"), class: 'btn btn-success'
+    = link_to 'Cancel', punchcards_path, class: 'btn btn-default'
