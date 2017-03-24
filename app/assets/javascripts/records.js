@@ -27,7 +27,6 @@ $(function () {
   $("#record_hours").slider({
     id: 'hoursSlider',
     tooltip: 'hide',
-    value: 1,
     step: 1,
     min: 1,
     max: 24,

@@ -10,7 +10,7 @@
   .form-group
     = f.label :hours
     %br
-    = f.text_field :hours, :data => { 'slider-min': '1', 'slider-max': '24', 'slider-step': '1', 'slider-value': '1' }
+    = f.text_field :hours, :data => { 'slider-value': "#{@record.hours}" }
     /= f.number_field :hours, min: 1, max: 24, :value => @record.hours, class: 'form-control'
 
   .form-group
