@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :record do
-    date Date.new
+    date { Faker::Date.backward }
     hours 3
     description 'Description...'
     punchcard { create(:punchcard) }
