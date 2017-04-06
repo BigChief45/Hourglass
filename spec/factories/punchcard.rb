@@ -1,6 +1,6 @@
 FactoryGirl.define do
-   factory :punchcard do
-       name 'Pool'
-       description 'Billiards'
-   end
+  factory :punchcard do
+    name 'Pool'
+    description 'Billiards'
+  end
 end
