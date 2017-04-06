@@ -6,6 +6,7 @@ require 'rspec/rails'
 
 require 'shoulda/matchers'
 
+require 'support/devise'
 require 'support/factory_girl'
 require 'support/shoulda'
 require 'support/database_cleaner'
