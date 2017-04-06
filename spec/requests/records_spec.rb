@@ -2,7 +2,12 @@ require 'rails_helper'
 
 RSpec.describe 'Records', type: :request do
 
-  let(:punchcard) { FactoryGirl.create(:punchcard) }
+  let(:user) { FactoryGirl.create(:user, email: 'test@test.com', password: '12345678', password_confirmation: '12345678') }
+  let(:punchcard) { FactoryGirl.create(:punchcard, id: 1, user: user) }
+
+  before :each do
+    sign_in user
+  end
 
   describe 'GET /punchcards/:id/records.json' do
     it 'returns punchcard records in JSON format' do
