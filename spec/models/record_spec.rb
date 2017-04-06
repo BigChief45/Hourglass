@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Record do
+describe Record, type: :model do
 
   it 'has a valid factory' do
     expect(build(:record)).to be_valid
