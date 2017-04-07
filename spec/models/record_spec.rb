@@ -10,6 +10,6 @@ describe Record, type: :model do
     it { is_expected.to validate_presence_of :hours }
     it { is_expected.to validate_presence_of :description }
     it { is_expected.to validate_presence_of :date }
-    it { is_expected.to validate_uniqueness_of :date }
+    it { is_expected.to validate_uniqueness_of(:date).scoped_to(:punchcard_id) }
   end
 end
