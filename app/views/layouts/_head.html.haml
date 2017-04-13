@@ -1,0 +1,11 @@
+%title Hourglass
+
+= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+= javascript_include_tag 'application', 'data-turbolinks-track' => true
+
+/ Bootstrap
+= stylesheet_link_tag "https://bootswatch.com/#{BOOTSTRAP_THEME}/bootstrap.min.css"
+= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', "data-turbolinks-eval" => false
+
+= csrf_meta_tags
+= favicon_link_tag 'favicon.ico'
