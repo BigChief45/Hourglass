@@ -1,1 +1,1 @@
-BOOTSTRAP_THEME = 'lumen'
+BOOTSTRAP_THEME = 'sandstone'
