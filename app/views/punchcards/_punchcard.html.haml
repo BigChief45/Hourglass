@@ -1,18 +1,21 @@
 .row
   .col-md-12
-    %h3
+    %h2
       %span= emojify @card.icon
       = @card.name
-      .btn-group.pull-right
-        = link_to new_punchcard_record_path(@card), class: 'btn btn-sm btn-default' do
-          %i.fa.fa-calendar-times-o
-          Punch
+      .btn-toolbar.pull-right
+        .btn-group.btn-group-sm
+          = link_to new_punchcard_record_path(@card), class: 'btn btn-success' do
+            %i.fa.fa-calendar-times-o
+            Punch
+        .btn-group.btn-group-sm
+          = link_to [:edit, @card], class: 'btn btn-default' do
+            %i.fa.fa-pencil
+            Edit
 
-        = link_to [:edit, @card], class: 'btn btn-sm btn-default' do
-          %i.fa.fa-pencil
-
-        = link_to punchcard_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' do
-          %i.fa.fa-trash
+          = link_to punchcard_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' do
+            %i.fa.fa-trash
+            Delete
 
     /%p.text-center= auto_link(@card.description)
 
@@ -62,20 +65,19 @@
 
     %hr
 
+    // Latest Entries
     #record_area
-      .panel.panel-primary
-        .panel-heading
-          %strong Latest Entries
-        %ul.list-group
-          - @records.each do |record|
-            %li.list-group-item
-              %h5.list-group-item-heading
-                %strong= link_to record.date.strftime("%A %B %d %Y"), [@card, record]
-                .pull-right.text-muted
-                  %i.fa.fa-clock-o
-                  %strong= record.hours
+      %h3 Latest Entries
+      %ul.list-group
+        - @records.each do |record|
+          %li.list-group-item
+            %h5.list-group-item-heading
+              %strong= link_to record.date.strftime("%A %B %d %Y"), [@card, record]
+              .pull-right.text-muted
+                %i.fa.fa-clock-o
+                %strong= record.hours
 
-              %p.list-group-item-text= record.description.html_safe
+            %p.list-group-item-text= record.description.html_safe
 
 :javascript
   /* Get the corresponding Punchcard ID */
@@ -94,7 +96,7 @@
     subDomain: "day",
     itemName: ["hour", "hours"],
     cellSize: 12,
-    range: 7,
+    range: 8,
     previousSelector: "#cal-previous",
     nextSelector: "#cal-next",
     rowLimit: 7,
