@@ -4,9 +4,7 @@
       .row
         - cards.each do |card|
           .col-md-3
-            .text-center
+            .punchcard-item.text-center
               = link_to card do
                 = emojify card.icon
-                %h3= card.name
-      %br
-      %br
+              %h3= card.name
