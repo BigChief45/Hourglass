@@ -8,6 +8,17 @@
         %span.icon-bar
       = link_to 'Hourglass', root_path, class: 'navbar-brand'
     .navbar-collapse
+      %ul.nav.navbar-nav
+        - if user_signed_in?
+          %li
+            = link_to new_punchcard_path do
+              %i.fa.fa-calendar-plus-o
+              Create Punchcard
+          %li
+            = link_to todays_report_path do
+              %i.fa.fa-calendar
+              Today
+
       %ul.nav.navbar-nav.navbar-right
         - unless user_signed_in?
           %li= link_to 'Register', register_path

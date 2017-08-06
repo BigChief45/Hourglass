@@ -1,0 +1,27 @@
+.row.cal-footer
+  .col-md-6.cal-footer-column
+    - unless @card.records.first.nil?
+      .text-center
+        %h5
+          %small Total Hours
+        %big.lead
+          = @card.total_hours
+          hours
+        %h5
+          %small
+            = @card.records.first.created_at.strftime("%B %d %Y")
+            –
+            = Time.current.strftime("%B %d %Y")
+  .col-md-6
+    - unless @card.records.first.nil?
+      .text-center
+        %h5
+          %small Total Entries
+        %big.lead
+          = @card.records.count
+          entries
+        %h5
+          %small
+            = @card.records.first.created_at.strftime("%B %d %Y")
+            –
+            = Time.current.strftime("%B %d %Y")

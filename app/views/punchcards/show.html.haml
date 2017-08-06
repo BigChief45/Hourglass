@@ -1,0 +1,28 @@
+.row
+  .col-md-3
+    .text-center
+      = emojify @card.icon
+      %h3= @card.name
+
+      %ul.list-inline
+        %li= link_to 'Edit', [:edit, @card]
+        %li= link_to 'Delete', punchcard_path, method: :delete, data: { confirm: 'Are you sure?' }
+
+      = link_to new_punchcard_record_path(@card), class: 'btn btn-success btn-sm' do
+        %i.fa.fa-calendar-check-o
+        Punch
+
+  .col-md-9
+    = render 'heatmap'
+    = render 'stats'
+
+    %hr
+
+    // Latest Entries
+    = render 'latest_entries'
+
+%hr
+
+= link_to root_path do
+  %i.fa.fa-arrow-left
+  Back

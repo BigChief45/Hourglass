@@ -16,8 +16,8 @@ class PunchcardsController < ApplicationController
 
       # Records Pagination
       #@records = @records.paginate(:page => params[:page], :per_page => 1)
-
       respond_to do |format|
+        format.html
         format.js
       end
     end
