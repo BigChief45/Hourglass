@@ -36,7 +36,7 @@ class RecordsController < ApplicationController
     end
 
     def new
-      @record = @card.records.build
+      @record = @card.records.build(hours: 1)
     end
 
     def show

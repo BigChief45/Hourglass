@@ -3,23 +3,28 @@
   // ERROR MESSAGES
   = render 'shared/errors', model: @record
 
-  .form-group
-    = f.label :date
-    = f.date_select :date
+  .row
+    .col-md-6
+      .form-group
+        = f.label :date
+        = f.date_select :date
+
+    .col-md-6
+      .form-group
+        = f.label :hours
+        %br
+        = f.number_field :hours, in: 1..10, step: 1, class: 'form-control'
+
+  .row
+    .col-md-12
+      .form-group
+        = f.label :description
+        = f.text_area :description, autofocus: true, rows: 10,
+          style: 'resize: vertical;', class: 'form-control wysihtml5',
+          placeholder: 'Enter record description here...'
 
   .form-group
-    = f.label :hours
-    %br
-    = f.text_field :hours, :data => { 'slider-value': "#{@record.hours}" }
+    = f.submit ( f.object.new_record? ? 'Punch Record' : 'Save Changes'),
+      class: 'btn btn-success', data: {disable_with: 'Processing...'}
 
-  .form-group
-    = f.label :description
-    = f.text_area :description, autofocus: true, rows: 10, style: 'resize: vertical;', class: 'form-control wysihtml5', placeholder: 'Enter record description here...'
-
-  .form-group
-    = f.submit ( f.object.new_record? ? 'Punch Record' : 'Save Changes'), class: 'btn btn-success'
     = link_to 'Cancel', punchcards_path, class: 'btn btn-default'
-
-/ Bootstrap Slider CDN
-= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.2/css/bootstrap-slider.min.css'
-= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.2/bootstrap-slider.min.js'
