@@ -25,6 +25,6 @@
           %li= link_to 'Login', login_path
         - else
           %li
-            = link_to logout_path do
+            = link_to logout_path, method: :delete do
               %i.fa.fa-sign-out
               Logout

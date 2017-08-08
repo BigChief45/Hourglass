@@ -2,40 +2,18 @@
 
 %html
 %head
-    %title Hourglass
-    
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    
-    
-    = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'
-    = stylesheet_link_tag 'https://bootswatch.com/cerulean/bootstrap.min.css'
-    
-    = javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'
-    
-    = stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
-    
-    = csrf_meta_tags
-    
-    = favicon_link_tag 'favicon.ico'
-    
-%body
+  = render 'layouts/head'
+  = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
 
-    .container
-        .row
-            .col-md-4.col-md-offset-4
-            
-                #logo.text-center
-                    .row
-                        .col-md-12
-                            = link_to root_path do
-                                %h1
-                                    = image_tag 'hourglass_icon128.png'
-                
-                // CONTENT
-                .panel.panel-default
-                    .panel-body
-                        
-                        = yield
-        
-                
+%body
+  .container
+    %br
+    %br
+
+    .row
+      .col-md-4.col-md-offset-4
+        // CONTENT
+        .panel.panel-default
+          .panel-body
+            = yield
+
