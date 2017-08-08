@@ -10,6 +10,7 @@ require 'support/devise'
 require 'support/factory_girl'
 require 'support/shoulda'
 require 'support/database_cleaner'
+require 'support/request_helpers'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -48,4 +49,6 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  config.include Request::JsonHelpers, type: :request
 end
