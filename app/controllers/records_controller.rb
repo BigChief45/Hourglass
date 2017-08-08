@@ -25,7 +25,7 @@ class RecordsController < ApplicationController
       # }
       hash = {}
       @json_records.each do |r|
-          hash[r.date.to_time.to_i] = r.hours
+          hash[r.date.to_time.to_i] = r.hours.to_f
       end
 
       respond_to do |format|
