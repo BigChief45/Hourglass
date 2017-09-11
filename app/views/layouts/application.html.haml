@@ -16,11 +16,12 @@
   = render 'layouts/navbar'
 
   .container
-    .row
-      .col-md-12
-        // ALERTS
-        = render 'layouts/alerts'
+    // ALERTS
+    = render 'layouts/alerts'
 
-        .panel.panel-default
-          .panel-body
-            = yield
+    .row
+      .col-md-3
+        = render 'shared/punchcards'
+      .col-md-9
+        #punchcard-area
+          = yield

@@ -6,7 +6,7 @@
 .row
     .col-md-12
         = render 'search_records'
-        
+
 %hr
 
 %table.table.table-responsive.table-striped.table-hover
@@ -36,7 +36,7 @@
 / PAGINATION
 .text-center
     = will_paginate @records, renderer: BootstrapPagination::Rails, class: 'pagination-sm'
-    
+
 %hr
 
 = link_to root_path do

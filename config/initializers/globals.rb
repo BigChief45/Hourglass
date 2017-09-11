@@ -1,1 +1,1 @@
-BOOTSTRAP_THEME = 'sandstone'
+BOOTSTRAP_THEME = 'united'

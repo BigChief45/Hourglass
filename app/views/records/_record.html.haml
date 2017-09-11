@@ -1,0 +1,18 @@
+%li.list-group-item
+  %h5.list-group-item-heading
+    %strong= link_to record.date.strftime("%A %B %d %Y"), [@card, record]
+
+    %ul.list-inline.pull-right.text-muted
+      %li
+        %span.fa.fa-clock-o
+        %strong= format_hours(record.hours)
+      %li
+        = link_to [:edit, @card, record] do
+          %span.fa.fa-pencil
+          Edit
+      %li
+        = link_to [@card, record], method: :delete do
+          %span.fa.fa-trash
+          Delete
+
+  %p.list-group-item-text= record.description.html_safe

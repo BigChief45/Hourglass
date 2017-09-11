@@ -1,0 +1,12 @@
+.panel.panel-default
+  .panel-heading
+    %strong Your Punchcards
+    .pull-right
+      = link_to new_punchcard_path, class: 'btn btn-xs btn-success' do
+        %span.fa.fa-plus
+        New
+  .list-group
+    - current_user.punchcards.each do |card|
+      = link_to card, class: 'list-group-item' do
+        = emojify card.icon, size: :small
+        %strong= card.name
