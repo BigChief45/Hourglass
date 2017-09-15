@@ -47,7 +47,7 @@ class RecordsController < ApplicationController
 
       respond_to do |format|
         if @record.save
-          format.html { redirect_to @card, flash: { success: 'Record punched successfully.' } }
+          format.html { redirect_to root_path, flash: { success: 'Record punched successfully.' } }
         else
           format.html { render 'punchcards/show', flash: { danger: 'Error punching record.' } }
         end
@@ -60,7 +60,7 @@ class RecordsController < ApplicationController
     def update
       respond_to do |format|
         if @record.update(record_params)
-          format.html { redirect_to [@card, @record], notice: 'Record was successfully updated.' }
+          format.html { redirect_to root_path, notice: 'Record was successfully updated.' }
         else
           format.html { render :edit }
         end

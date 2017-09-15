@@ -1,0 +1,8 @@
+.btn-group.btn-group-xs
+  = link_to [:edit, resource], class: 'btn btn-default' do
+    %span.fa.fa-pencil
+    Edit
+  = link_to resource, method: :delete, data: { confirm: 'Are you sure?' },
+    class: 'btn btn-danger' do
+    %span.fa.fa-trash
+    Delete

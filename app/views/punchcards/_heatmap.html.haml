@@ -1,6 +1,6 @@
 .row
   .col-md-10.col-md-offset-1
-    #cal-heatmap{ "data-id" => "#{@card.id}" }
+    #cal-heatmap{ "data-id" => "#{card.id}" }
     .btn-group.btn-group-xs
       #cal-previous.btn.btn-default
         %i.fa.fa-arrow-left
@@ -16,6 +16,7 @@
 
   var cal = new CalHeatMap();
   cal.init({
+    itemNamespace: punchcard_id,
     data: path,
     start: new Date().setMonth(new Date().getMonth() - 6),
     //minDate: new Date().setMonth(new Date().getMonth() - 6),
@@ -24,7 +25,7 @@
     subDomain: "day",
     itemName: ["hour", "hours"],
     cellSize: 12,
-    range: 8,
+    range: 6,
     previousSelector: "#cal-previous",
     nextSelector: "#cal-next",
     rowLimit: 7,

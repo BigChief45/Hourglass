@@ -16,12 +16,10 @@
   = render 'layouts/navbar'
 
   .container
-    // ALERTS
     = render 'layouts/alerts'
 
     .row
-      .col-md-3
-        = render 'shared/punchcards'
-      .col-md-9
-        #punchcard-area
-          = yield
+      .col-md-12
+        = yield
+
+#modal-holder
