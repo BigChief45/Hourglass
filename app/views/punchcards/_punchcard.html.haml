@@ -24,7 +24,13 @@
     = render 'punchcards/stats', card: card
 
   %ul.list-group
-    = render card.records.last, card: card
+    - unless card.records.empty?
+      = render card.records.last, card: card
+    - else
+      %li.list-group-item
+        %p.text-center No entries
+
+
 
   .panel-footer
     = link_to 'View all entries', punchcard_records_path(card), class: 'small'
