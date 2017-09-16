@@ -49,7 +49,8 @@ class RecordsController < ApplicationController
         if @record.save
           format.html { redirect_to root_path, flash: { success: 'Record punched successfully.' } }
         else
-          format.html { render 'punchcards/show', flash: { danger: 'Error punching record.' } }
+          format.js
+          format.html { render :new, flash: { danger: 'Error punching record.' } }
         end
       end
     end
@@ -62,7 +63,8 @@ class RecordsController < ApplicationController
         if @record.update(record_params)
           format.html { redirect_to root_path, notice: 'Record was successfully updated.' }
         else
-          format.html { render :edit }
+          format.js
+          format.html { render :edit, flash: { danger: 'Error trying to update record. '} }
         end
       end
     end

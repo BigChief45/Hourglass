@@ -8,7 +8,7 @@
 
       .btn-group.btn-group-xs
         = link_to new_punchcard_record_path(card), class: 'btn btn-success',
-            data: { behavior: 'modal' } do
+            data: { behavior: 'modal' }, remote: true do
           %span.fa.fa-calendar-check-o
           Punch
   .panel-body

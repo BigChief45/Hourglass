@@ -7,7 +7,7 @@
         %span.fa.fa-clock-o
         %strong= format_hours(record.hours)
       %li
-        = link_to [:edit, card, record] do
+        = link_to [:edit, card, record], remote: true do
           %span.fa.fa-pencil
       %li
         = link_to [card, record], method: :delete do
