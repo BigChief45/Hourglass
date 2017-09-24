@@ -11,7 +11,7 @@ $ ->
             itemSelector: "#cal-heatmap-#{punchcard}"
             itemNamespace: "cal#{punchcard}"
             data: "/punchcards/#{punchcard}/records.json"
-            start: (new Date).setMonth((new Date).getMonth() - 6)
+            start: (new Date).setMonth((new Date).getMonth() - 5)
             maxDate: new Date
             domain: 'month'
             subDomain: 'day'
