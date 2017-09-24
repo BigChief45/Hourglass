@@ -9,7 +9,7 @@ $ ->
           cal = new CalHeatMap
           cal.init
             itemSelector: "#cal-heatmap-#{punchcard}"
-            itemNamespace: "cal#{punchcard}"
+            #itemNamespace: "cal#{punchcard}"
             data: "/punchcards/#{punchcard}/records.json"
             start: (new Date).setMonth((new Date).getMonth() - 5)
             maxDate: new Date
@@ -18,8 +18,8 @@ $ ->
             itemName: ['hour', 'hours']
             cellSize: 12
             range: 6
-            previousSelector: '#cal-previous'
-            nextSelector: '#cal-next'
+            previousSelector: "#cal-previous-#{punchcard}"
+            nextSelector: "#cal-next-#{punchcard}"
             rowLimit: 7
             highlight: 'now'
             legendVerticalPosition: 'bottom'
@@ -33,7 +33,8 @@ $ ->
               # Parse the date for ActiveRecord
               date = moment(date).format('YYYY-MM-DD HH:mm:ss')
 
-              # Retrieve the ActiveRecord Record object associated with the date of the cell
+              # Retrieve the ActiveRecord Record object associated with the
+              # date of the cell
               if nb != null
                 $.ajax(
                   url: '/search_record'
