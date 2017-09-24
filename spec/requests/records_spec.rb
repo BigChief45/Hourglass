@@ -25,4 +25,21 @@ RSpec.describe 'Records', type: :request do
     end
   end
 
+  describe 'GET /punchcards/:id/records/search' do
+    let(:record) { FactoryGirl.create(:record, hours: 10, date: Time.zone.now,
+      description: 'Blah', punchcard: punchcard) }
+
+    it 'searches for record and returns its ID' do
+      pending "Fix Nil return from controller"
+
+      get '/punchcards/1/records/search',
+        params: { record_date: record.date.strftime("%Y-%m-%d %H:%M:%S") },
+        format: :json,
+        headers: { 'Accept': 'application/vnd' }
+
+      expect(response).to have_http_status 200
+      #expect(json_response).to eq(record.id)
+    end
+  end
+
 end

@@ -9,11 +9,12 @@ Rails.application.routes.draw do
   end
 
   resources :punchcards do
-    resources :records
+    resources :records do
+      get 'search', on: :collection
+    end
   end
 
-  get 'search_record', to: 'records#search_record'
-  get 'todays_report', to: 'records#todays_report'
+  get 'today', to: 'records#today'
 
   root 'punchcards#index'
 

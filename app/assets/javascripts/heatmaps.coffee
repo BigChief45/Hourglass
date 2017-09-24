@@ -37,10 +37,9 @@ $ ->
               # date of the cell
               if nb != null
                 $.ajax(
-                  url: '/search_record'
+                  url: "/punchcards/#{punchcard}/records/search"
                   data:
                     record_date: date
-                    pcard_id: punchcard
                   dataType: 'json'
                 ).done (data) ->
                   # Redirect to the obtained record show view

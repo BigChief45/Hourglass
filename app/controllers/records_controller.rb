@@ -1,7 +1,7 @@
 class RecordsController < ApplicationController
     before_action :authenticate_user!
 
-    before_action :find_punchcard, except: [:search_record, :todays_report]
+    before_action :find_punchcard, except: [:search, :today]
     before_action :find_record, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -76,17 +76,18 @@ class RecordsController < ApplicationController
       end
     end
 
-    def search_record
+    def search
       # Searches for a record using its date attribute and punchcard.
-      # Used with AJAX calls within CalHeatMap events
-      record = Record.find_by(date: params[:record_date], punchcard_id: params[:pcard_id])
+      # Used with AJAX calls within a CalHeatMap
+      record = Record.find_by(date: params[:record_date],
+        punchcard_id: params[:punchcard_id])
 
       respond_to do |format|
         format.json { render json: record.id }
       end
     end
 
-    def todays_report
+    def today
       @todays_records = Record.where("date >= ?", DateTime.now.to_date.strftime('%Y-%m-%d'))
     end
 
