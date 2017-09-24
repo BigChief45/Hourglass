@@ -26,11 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "haml"
 gem "devise"
-gem "js-routes"
 gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
 gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap'
-gem "bootstrap-wysihtml5-rails"
 gem 'gemoji'
 gem 'ransack'
 gem 'momentjs-rails', '>= 2.9.0'
