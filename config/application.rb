@@ -14,5 +14,13 @@ module Workspace
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    # Layouts for Devise views
+    config.to_prepare do
+      Devise::RegistrationsController.layout 'registrations'
+      Devise::SessionsController.layout 'sessions'
+      Devise::PasswordsController.layout proc { |controller| user_signed_in? ? 'application' : 'sessions' }
+    end
+
   end
 end
