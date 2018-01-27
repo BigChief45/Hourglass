@@ -1,4 +1,4 @@
-class Record < ActiveRecord::Base
+class Record < ApplicationRecord
     belongs_to :punchcard
 
     validates :date, :presence => true

@@ -1,4 +1,4 @@
-class Punchcard < ActiveRecord::Base
+class Punchcard < ApplicationRecord
   belongs_to :user
   has_many :records, dependent: :destroy
 
