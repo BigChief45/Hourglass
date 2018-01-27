@@ -30,15 +30,14 @@ RSpec.describe 'Records', type: :request do
       description: 'Blah', punchcard: punchcard) }
 
     it 'searches for record and returns its ID' do
-      pending "Fix Nil return from controller"
+      #pending 'Fix Nil return from controller'
 
       get '/punchcards/1/records/search',
         params: { record_date: record.date.strftime("%Y-%m-%d %H:%M:%S") },
-        format: :json,
-        headers: { 'Accept': 'application/vnd' }
+        headers: { 'Accept': 'application/json' }
 
       expect(response).to have_http_status 200
-      #expect(json_response).to eq(record.id)
+      expect(json_response).to eq(record.id)
     end
   end
 

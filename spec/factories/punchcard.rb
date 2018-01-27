@@ -2,6 +2,6 @@ FactoryBot.define do
   factory :punchcard do
     name 'Pool'
     description 'Billiards'
-    punchcard { create(:user) }
+    user { create(:user) }
   end
 end
