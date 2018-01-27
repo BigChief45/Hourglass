@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :punchcard do
     name 'Pool'
     description 'Billiards'
