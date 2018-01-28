@@ -1,25 +1,30 @@
 !!! 5
 
 %html
-%head
-  = render 'layouts/head'
+  %head
+    = render 'layouts/head'
 
-  / Font Awesome
-  = stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    / Font Awesome
+    = stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
 
-  / Cal-Heat Map CDN
-  = javascript_include_tag '//d3js.org/d3.v3.min.js'
-  = javascript_include_tag '//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js'
-  = stylesheet_link_tag '//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css'
+    / Cal-Heat Map CDN
+    = javascript_include_tag '//d3js.org/d3.v3.min.js'
+    = javascript_include_tag '//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js'
+    = stylesheet_link_tag '//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css'
 
-%body
-  = render 'layouts/navbar'
+  %body
+    = render 'layouts/navbar'
 
-  .container
-    = render 'layouts/alerts'
+    .container.m-5
+      .row
+        .col-md-12
+          = render 'layouts/alerts'
 
-    .row
-      .col-md-12
-        = yield
+      .row
+        .col-md-12
+          = yield
 
-#modal-container
+      %hr
+      = render 'layouts/footer'
+
+  #modal-container

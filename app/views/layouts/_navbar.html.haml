@@ -1,30 +1,26 @@
-%nav.navbar.navbar-inverse
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
   .container
-    .navbar-header
-      %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      = link_to 'Hourglass', root_path, class: 'navbar-brand'
-    .navbar-collapse
-      %ul.nav.navbar-nav
+    = link_to 'Hourglass', root_path, class: 'navbar-brand'
+    %button.navbar-toggler{"aria-controls" => "navbarColor01", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarColor01", "data-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav.mr-auto
         - if user_signed_in?
           %li
-            = link_to new_punchcard_path do
+            = link_to new_punchcard_path, class: 'nav-link' do
               %i.fa.fa-calendar-plus-o
               Create Punchcard
           %li
-            = link_to today_path do
+            = link_to today_path, class: 'nav-link' do
               %i.fa.fa-calendar
               Today
 
-      %ul.nav.navbar-nav.navbar-right
+      %ul.nav.navbar-nav
         - unless user_signed_in?
-          %li= link_to 'Register', register_path
-          %li= link_to 'Login', login_path
+          %li= link_to 'Register', register_path, class: 'nav-link'
+          %li= link_to 'Login', login_path, class: 'nav-link'
         - else
           %li
-            = link_to logout_path, method: :delete do
+            = link_to logout_path, method: :delete, class: 'nav-link' do
               %i.fa.fa-sign-out
               Logout

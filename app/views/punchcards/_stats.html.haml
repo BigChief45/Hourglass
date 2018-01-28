@@ -1,25 +1,23 @@
 .row.cal-footer
   .col-md-6.cal-footer-column
     .text-center
-      %h5
-        %small Total Hours
-      %big.lead
-        = format_hours(card.total_hours)
-        hours
-      %h5
-        %small
-          = card.start_time
-          –
-          = Time.current.strftime("%B %d %Y")
+      %small.text-muted Total Hours
+      %h3
+        %strong
+          = format_hours(card.total_hours)
+          hours
+      %small.text-muted
+        = card.start_time
+        –
+        = Time.current.strftime("%B %d %Y")
   .col-md-6
     .text-center
-      %h5
-        %small Total Entries
-      %big.lead
-        = card.records.count
-        entries
-      %h5
-        %small
-          = card.start_time
-          –
-          = Time.current.strftime("%B %d %Y")
+      %small.text-muted Total Entries
+      %h3
+        %strong
+          = card.records.count
+          entries
+      %small.text-muted
+        = card.start_time
+        –
+        = Time.current.strftime("%B %d %Y")

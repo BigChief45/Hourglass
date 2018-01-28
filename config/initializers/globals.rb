@@ -1,1 +1,1 @@
-BOOTSTRAP_THEME = 'united'
+BOOTSTRAP_THEME = 'cosmo'

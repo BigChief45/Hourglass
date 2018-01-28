@@ -1,17 +1,16 @@
 %li.list-group-item
-  %h5.list-group-item-heading
-    %strong= link_to record.date.strftime("%A %B %d %Y"), [card, record]
+  .d-flex.w-100.justify-content-between
+    %h5= link_to record.date.strftime("%A %B %d %Y"), [card, record]
 
-    %ul.list-inline.pull-right.text-muted
-      %li
+    %ul.list-inline.text-muted
+      %li.list-inline-item
         %span.fa.fa-clock-o
         %strong= format_hours(record.hours)
-      %li
+      %li.list-inline-item
         = link_to [:edit, card, record], remote: true do
           %span.fa.fa-pencil
-      %li
+      %li.list-inline-item
         = link_to [card, record], method: :delete do
           %span.fa.fa-trash
 
-  %p.list-group-item-text.small
-    = truncate(record.description.html_safe, length: 100)
+  %p= truncate(record.description.html_safe, length: 100)

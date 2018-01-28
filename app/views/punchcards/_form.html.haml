@@ -1,29 +1,26 @@
 = form_for @card do |f|
-    
-    // ERROR MESSAGES
-    = render "shared/errors", model: @card
-    
-    .row
-        .col-md-12
-            
-            .form-group
-                = f.label :name
-                = f.text_field :name, autofocus: true, class: 'form-control input-sm'
-            
-            .form-group
-                = f.label :description
-                = f.text_field :description, class: 'form-control input-sm'
-            
-            .form-group
-                = f.label :icon, 'Emoji'
-                %br
-                %p.small
-                    %a{ href: 'http://www.emoji-cheat-sheet.com/', target: '_blank' } 
-                        %i.fa.fa-eye
-                        Browse Emojis
-                = f.text_field :icon, class: 'form-control input-sm', placeholder: "Example: :cat:"
-                
-                
-            .form-group
-                = f.submit ( f.object.new_record? ? "Add Punchcard" : "Save Changes"), class: 'btn btn-success'
-                = link_to 'Cancel', punchcards_path, class: 'btn btn-default'
+  // ERROR MESSAGES
+  = render 'shared/errors', model: @card
+
+  .row
+    .col-md-12
+      .form-group
+        = f.label :name
+        = f.text_field :name, autofocus: true, class: 'form-control input-sm'
+
+      .form-group
+        = f.label :description
+        = f.text_field :description, class: 'form-control input-sm'
+
+      .form-group
+        = f.label :icon, 'Emoji'
+        %small
+          %a{ href: 'http://www.emoji-cheat-sheet.com/', target: '_blank' }
+            %i.fa.fa-eye
+            Browse Emojis
+        = f.text_field :icon, class: 'form-control input-sm', placeholder: "Example: :cat:"
+
+
+      .form-group
+        = f.submit ( f.object.new_record? ? 'Add Punchcard' : 'Save Changes'), class: 'btn btn-success'
+        = link_to 'Cancel', punchcards_path, class: 'btn btn-outline-secondary'

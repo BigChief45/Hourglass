@@ -1,36 +1,36 @@
-.panel.panel-default
-  .panel-heading
+.card
+  %h4.card-header
     = emojify card.icon, size: :small
     %strong= card.name
 
     .btn-toolbar.pull-right
       = render 'shared/manage_resource', resource: card
 
-      .btn-group.btn-group-xs
+      .btn-group.btn-group-sm
         = link_to new_punchcard_record_path(card), class: 'btn btn-success',
             data: { behavior: 'modal' }, remote: true do
           %span.fa.fa-calendar-check-o
           Punch
-  .panel-body
+
+  .card-body
     .row
-      .col-md-10.col-md-offset-1
+      .col-md-10.mx-auto
         .heatmap{ id: "cal-heatmap-#{card.id}", 'data-punchcard': card.id }
-        .btn-group.btn-group-xs
-          .btn.btn-default{ id: "cal-previous-#{card.id}" }
+        .btn-group.btn-group-sm
+          .btn.btn-secondary{ id: "cal-previous-#{card.id}" }
             %span.fa.fa-arrow-left
-          .btn.btn-default{ id: "cal-next-#{card.id}" }
+          .btn.btn-secondary{ id: "cal-next-#{card.id}" }
             %span.fa.fa-arrow-right
 
+    %hr
     = render 'punchcards/stats', card: card
 
-  %ul.list-group
+  %ul.list-group.list-group-flush
     - unless card.records.empty?
       = render card.records.last, card: card
     - else
       %li.list-group-item
         %p.text-center No entries
 
-
-
-  .panel-footer
+  .card-footer
     = link_to 'View all entries', punchcard_records_path(card), class: 'small'
