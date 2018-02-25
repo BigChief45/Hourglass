@@ -1,4 +1,4 @@
-%h1 Today's Report
+%h2 Today's Report
 
 - unless @todays_records.blank?
   %table.table.table-responsive.table-striped.table-hover
@@ -22,9 +22,10 @@
             = record.hours
           %td= link_to 'View Record', [record.punchcard, record]
 - else
-  %p.text-center There are no records for today.
-
-
-= link_to root_path do
-  %i.fa.fa-arrow-left
-  Back
+  .jumbotron
+    .text-center
+      = image_tag 'https://png.icons8.com/dusk/64/000000/edit-property.png'
+      %p
+        There are no records for today. Visit
+        = link_to 'your punchcards', punchcards_path
+        to log some records.

@@ -1,1 +1,1 @@
-BOOTSTRAP_THEME = 'cosmo'
+BOOTSTRAP_THEME = 'yeti'

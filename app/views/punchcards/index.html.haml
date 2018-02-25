@@ -1,5 +1,10 @@
-- @cards.each_slice(2) do |cards|
-  .row
-    - cards.each do |card|
-      .col-md-6
-        = render 'punchcard', card: card
+%h2
+  Punchcards
+
+  %ul.list-inline.pull-right
+    %li
+      = link_to new_punchcard_path do
+        = image_tag 'icons/time_add.png', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'Create Punchcard'
+
+- @cards.each do |card|
+  = render 'punchcard', card: card

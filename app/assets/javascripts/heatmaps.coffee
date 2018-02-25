@@ -17,7 +17,7 @@ $ ->
             subDomain: 'day'
             itemName: ['hour', 'hours']
             cellSize: 12
-            range: 6
+            range: 12
             previousSelector: "#cal-previous-#{punchcard}"
             nextSelector: "#cal-next-#{punchcard}"
             rowLimit: 7

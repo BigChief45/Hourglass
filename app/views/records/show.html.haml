@@ -1,43 +1,34 @@
-.page-header
-    %h2
-        %span= emojify @record.punchcard.icon
-        = @record.punchcard.name
+%h2= @record.punchcard.name
 
-%h3.text-center
-    = @record.date.strftime("%A %B %d %Y")
-    %br
-    %small
-        %i.fa.fa-clock-o
-        = @record.hours
-
+%h5.text-center
+  = @record.date.strftime("%A %B %d %Y")
+  %br
+  %small.text-muted
+    %span.fa.fa-clock-o
+    = @record.hours
 
 .row
-    .col-md-12
-        = @record.description.html_safe
-        
-        / PAGING
-        %ul.pager
-            - if !@record.previous.blank?
-                %li.pull-left 
-                    = link_to '←', [@record.punchcard, @record.previous]
-            
-            - if !@record.next.blank?
-                %li.pull-right
-                    = link_to '→', [@record.punchcard, @record.next]
+  .col-md-12
+    = @record.description.html_safe
+
+    / PAGING
+    %nav
+      %ul.pagination.justify-content-center
+        - unless @record.previous.blank?
+          %li.page-item
+            = link_to '←', [@record.punchcard, @record.previous], class: 'page-link'
+
+        - unless @record.next.blank?
+          %li.page-item
+            = link_to '→', [@record.punchcard, @record.next], class: 'page-link'
 
 .text-center
-    %ul.list-inline
-        %li
-            = link_to [:edit, @card, @record] do
-                %i.fa.fa-pencil
-                Edit Record
-        %li
-            = link_to [@card, @record], method: :delete, data: { confirm: 'Are you sure?' } do
-                %i.fa.fa-trash
-                Delete Record
-
-%hr
-
-= link_to root_path do
-    %i.fa.fa-arrow-left
-    Back
+  %ul.list-inline
+    %li.list-inline-item
+      = link_to [:edit, @card, @record] do
+        = image_tag 'icons/pencil.png'
+        Edit Record
+    %li.list-inline-item
+      = link_to [@card, @record], method: :delete, data: { confirm: 'Are you sure?' } do
+        = image_tag 'icons/delete.png'
+        Delete Record

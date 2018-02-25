@@ -1,36 +1,43 @@
-.card
-  %h4.card-header
-    = emojify card.icon, size: :small
-    %strong= card.name
-
-    .btn-toolbar.pull-right
-      = render 'shared/manage_resource', resource: card
-
-      .btn-group.btn-group-sm
-        = link_to new_punchcard_record_path(card), class: 'btn btn-success',
-            data: { behavior: 'modal' }, remote: true do
-          %span.fa.fa-calendar-check-o
-          Punch
-
+.card.my-5
   .card-body
+    %h3.card-title
+      /= emojify card.icon, size: :small
+      %strong= card.name
+
+      %ul.list-inline.pull-right
+        %li.list-inline-item
+          = link_to new_punchcard_record_path(card), data: { behavior: 'modal' }, remote: true do
+            = image_tag 'icons/date_task.png', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'Punch Record'
+
+        %li.list-inline-item
+          = link_to [:edit, card] do
+            = image_tag 'icons/pencil.png', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'Edit Punchcard'
+        %li.list-inline-item
+          = link_to card, method: :delete, data: { confirm: 'Are you sure?' } do
+            = image_tag 'icons/delete.png', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'Delete Punchcard'
+
+
+    %h6.card-subtitle.mb-2.text-muted= card.description
+
+    / HEATMAP
     .row
-      .col-md-10.mx-auto
+      .col-md-12.mx-auto
         .heatmap{ id: "cal-heatmap-#{card.id}", 'data-punchcard': card.id }
+
         .btn-group.btn-group-sm
           .btn.btn-secondary{ id: "cal-previous-#{card.id}" }
             %span.fa.fa-arrow-left
           .btn.btn-secondary{ id: "cal-next-#{card.id}" }
             %span.fa.fa-arrow-right
 
-    %hr
+    / STATS
     = render 'punchcards/stats', card: card
 
-  %ul.list-group.list-group-flush
-    - unless card.records.empty?
-      = render card.records.last, card: card
-    - else
-      %li.list-group-item
-        %p.text-center No entries
+  - unless card.records.empty?
+    .card-footer.text-muted
+      %small
+        Last updated on
+        = card.records.last.date.strftime('%A %B %d %Y')
 
-  .card-footer
-    = link_to 'View all entries', punchcard_records_path(card), class: 'small'
+        .pull-right
+          = link_to 'View all records', punchcard_records_path(card)

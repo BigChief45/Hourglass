@@ -1,11 +1,11 @@
-#manage-record.modal.fade{:role => "dialog", :tabindex => "-1"}
+#manage-record.modal.fade{:role => 'dialog', :tabindex => '-1'}
   = simple_form_for([@card, @record]) do |f|
-    .modal-dialog{:role => "document"}
+    .modal-dialog{:role => 'document'}
       .modal-content
         .modal-header
           %h4.modal-title Punch Record
-          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-            %span{"aria-hidden" => "true"} ×
+          %button.close{'aria-label' => 'Close', 'data-dismiss' => 'modal', :type => 'button'}
+            %span{'aria-hidden' => 'true'} ×
         .modal-body
           .row
             .col-md-6
@@ -20,4 +20,7 @@
 
         .modal-footer
           = f.button :submit, class: 'btn btn-success'
-          %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+          %small
+            or
+            %a{href: '#', 'data-dismiss' => 'modal'} Cancel
+            /%button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close

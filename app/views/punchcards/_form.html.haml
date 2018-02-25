@@ -14,12 +14,9 @@
 
       .form-group
         = f.label :icon, 'Emoji'
-        %small
-          %a{ href: 'http://www.emoji-cheat-sheet.com/', target: '_blank' }
-            %i.fa.fa-eye
-            Browse Emojis
         = f.text_field :icon, class: 'form-control input-sm', placeholder: "Example: :cat:"
-
+        %small.form-text.text-muted
+          = link_to 'Browse Emojis', 'http://www.emoji-cheat-sheet.com/', target: '_blank'
 
       .form-group
         = f.submit ( f.object.new_record? ? 'Add Punchcard' : 'Save Changes'), class: 'btn btn-success'

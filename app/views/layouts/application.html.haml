@@ -13,15 +13,27 @@
     = stylesheet_link_tag '//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css'
 
   %body
-    = render 'layouts/navbar'
-
     .container.m-5
-      .row
+      .row.mb-2
         .col-md-12
+          .pull-right
+            - if user_signed_in?
+              .dropdown.show
+                %a.dropdown-toggle{'data-toggle': 'dropdown', href: '#'}= current_user.email
+
+                .dropdown-menu
+                  .dropdown-divider
+                  = link_to logout_path, method: :delete, class: 'dropdown-item' do
+                    = image_tag 'icons/door_out.png'
+                    Logout
+
+      .row
+        = render 'layouts/nav'
+
+        / CONTENT
+        .col-md-10
           = render 'layouts/alerts'
 
-      .row
-        .col-md-12
           = yield
 
       %hr

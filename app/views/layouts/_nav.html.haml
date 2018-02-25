@@ -1,0 +1,13 @@
+.col-md-2
+  = link_to root_path do
+    = image_tag 'https://png.icons8.com/dusk/64/000000/timer.png', class: 'mb-5'
+
+  %ul.list-unstyled
+    %li
+      = link_to punchcards_path do
+        = image_tag 'icons/time.png'
+        Punchcards
+    %li
+      = link_to today_path do
+        = image_tag 'icons/date.png'
+        Today
