@@ -7,6 +7,7 @@ class PunchcardsController < ApplicationController
 
   def new
     @card = current_user.punchcards.build
+    @goal = @card.build_goal
   end
 
   def show
@@ -26,6 +27,7 @@ class PunchcardsController < ApplicationController
   end
 
   def edit
+    @goal = @card.build_goal if @card.goal.nil?
   end
 
   def update
@@ -52,7 +54,7 @@ class PunchcardsController < ApplicationController
     end
 
     def punchcard_params
-      params.require(:punchcard).permit(:name, :description, :icon, :user_id)
+      params.require(:punchcard).permit(:name, :description, :icon, :user_id, goal_attributes: [:monthly_hours])
     end
 
 end

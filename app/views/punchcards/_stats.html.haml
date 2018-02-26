@@ -1,5 +1,5 @@
-.row.cal-footer
-  .col-md-6.cal-footer-column
+.row.my-1
+  .col-md-4
     .text-center
       %small.text-muted Total Hours
       %h3
@@ -9,8 +9,8 @@
       %small.text-muted
         = card.start_time
         –
-        = Time.current.strftime("%B %d %Y")
-  .col-md-6
+        = Time.current.strftime('%B %d %Y')
+  .col-md-4
     .text-center
       %small.text-muted Total Entries
       %h3
@@ -20,4 +20,22 @@
       %small.text-muted
         = card.start_time
         –
-        = Time.current.strftime("%B %d %Y")
+        = Time.current.strftime('%B %d %Y')
+
+  / GOAL
+  .col-md-4
+    .text-center
+      %small.text-muted Monthly Goal
+      - if card.goal.present?
+        .progress.my-1
+          .progress-bar{class: "#{progress_bar_color(card.goal, card.current_month_hours)}", style: "width: #{progress_bar_width(card.goal, card.current_month_hours)}%"}
+
+        %p
+          %strong= "#{card.current_month_hours} / #{card.goal.monthly_hours}"
+          Hours
+
+      - else
+        %p.small
+          You haven't set any goal for this punchcard
+          %br
+          = link_to 'Add goal', [:edit, card]
