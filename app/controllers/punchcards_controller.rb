@@ -54,7 +54,7 @@ class PunchcardsController < ApplicationController
     end
 
     def punchcard_params
-      params.require(:punchcard).permit(:name, :description, :icon, :user_id, goal_attributes: [:monthly_hours])
+      params.require(:punchcard).permit(:name, :description, :icon, :user_id, goal_attributes: [:id, :monthly_hours])
     end
 
 end
