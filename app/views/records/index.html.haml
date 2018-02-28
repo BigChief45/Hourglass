@@ -7,29 +7,18 @@
 
 .row
   .col-md-12
-    %table.table.table-sm.table-striped.table-hover
-      %thead
-        %tr
-          %th #
-          %th Date
-          %th Hours
-          %th
-      %tbody
-        - @records.each_with_index do |record, index|
-          %tr
-            %td= index+1
-            %td= link_to record.date.strftime("%A %B %d %Y"), [@card, record]
-            %td
-              %i.fa.fa-clock-o
+    .list-group
+      - @records.each_with_index do |record|
+        = link_to [@card, record], class: 'list-group-item list-group-item-action flex-column align-items-start' do
+          .d-flex.w-100.justify-content-between
+            %h6.mb-1
+              %strong= record.date.strftime('%A %B %d %Y')
+            %h6
+              %span.fa.fa-clock-o
               = record.hours
-            %td
-              %ul.list-inline
-                %li.list-inline-item
-                  = link_to [:edit, @card, record] do
-                    = image_tag 'icons/pencil.png'
-                %li.list-inline-item
-                  = link_to [@card, record], method: :delete, data: { confirm: 'Are you sure?' } do
-                    = image_tag 'icons/delete.png'
+              Hours
+
+          %p.mb-1= record.description
 
     / PAGINATION
     .text-center
