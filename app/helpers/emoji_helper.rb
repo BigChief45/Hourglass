@@ -5,7 +5,7 @@ module EmojiHelper
     when :small
       size = '20'
     when :big
-      size = '64'
+      size = '42'
     end
 
     h(content).to_str.gsub(/:([\w+-]+):/) do |match|

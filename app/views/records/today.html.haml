@@ -1,31 +1,27 @@
 %h2 Today's Report
 
-- unless @todays_records.blank?
-  %table.table.table-responsive.table-striped.table-hover
-    %thead
-      %tr
-        %th #
-        %th Punchcard
-        %th Date
-        %th Hours
-        %th
-    %tbody
-      - @todays_records.each_with_index do |record, index|
-        %tr
-          %td= index + 1
-          %td
-            %span= emojify record.punchcard.icon
-            = record.punchcard.name
-          %td= record.date.strftime("%A %B %d %Y")
-          %td
-            %i.fa.fa-clock-o
-            = record.hours
-          %td= link_to 'View Record', [record.punchcard, record]
-- else
-  .jumbotron
-    .text-center
-      = image_tag 'https://png.icons8.com/dusk/64/000000/edit-property.png'
-      %p
-        There are no records for today. Visit
-        = link_to 'your punchcards', punchcards_path
-        to log some records.
+.row.my-5
+  .col-md-12
+    - unless @todays_records.blank?
+      .list-group
+        - @todays_records.each do |record|
+          = link_to [record.punchcard, record], class: 'list-group-item list-group-item-action flex-column align-items-start' do
+            .d-flex.w-100.justify-content-between
+              %h6.mb-1
+                = emojify record.punchcard.icon, size: :small
+                %strong= record.date.strftime('%A %B %d %Y')
+              %h6.text-muted
+                %span.fa.fa-clock-o
+                = record.hours
+                Hours
+
+            %p.mb-1= record.description
+
+    - else
+      .jumbotron
+        .text-center
+          = image_tag 'https://png.icons8.com/dusk/64/000000/edit-property.png'
+          %p
+            There are no records for today. Visit
+            = link_to 'your punchcards', punchcards_path
+            to log some records.
