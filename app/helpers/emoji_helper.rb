@@ -3,9 +3,11 @@ module EmojiHelper
   def emojify(content, options={})
     case options[:size]
     when :small
-      size = '20'
+      size = 20
+    when :medium
+      size = 32
     when :big
-      size = '42'
+      size = 42
     end
 
     h(content).to_str.gsub(/:([\w+-]+):/) do |match|
