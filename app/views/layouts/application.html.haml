@@ -16,16 +16,22 @@
     .container.m-5
       .row.mb-2
         .col-md-12
-          .pull-right
-            - if user_signed_in?
+          - if user_signed_in?
+            .float-right
               .dropdown.show
                 %a.dropdown-toggle{'data-toggle': 'dropdown', href: '#'}= current_user.email
-
                 .dropdown-menu
+                  = link_to edit_user_registration_path, class: 'dropdown-item' do
+                    = image_tag 'icons/cog.png'
+                    Settings
                   .dropdown-divider
                   = link_to logout_path, method: :delete, class: 'dropdown-item' do
                     = image_tag 'icons/door_out.png'
                     Logout
+
+              %small
+                = Time.now.in_time_zone(current_user.time_zone).to_date.strftime('%A %B %d %Y')
+                (#{current_user.time_zone})
 
       .row
         = render 'layouts/nav'

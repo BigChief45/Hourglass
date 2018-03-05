@@ -6,15 +6,5 @@
 
 %body
   .container.m-5
-    .row
-      .col-md-6.mx-auto
-        #logo.text-center
-          .row
-            .col-md-12
-              = link_to root_path do
-                %h1= image_tag 'hourglass_icon128.png'
-
-        .card
-          .card-body
-            = yield
+    = yield
 
