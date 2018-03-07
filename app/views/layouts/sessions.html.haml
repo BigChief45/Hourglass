@@ -3,14 +3,15 @@
 %html
 %head
   = render 'layouts/head'
-  = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
+  = stylesheet_link_tag 'sessions'
 
 %body
-  .container.m-5
-    .row
-      .col-md-4.mx-auto
-        // CONTENT
-        .card
-          .card-body
+  .container-fluid.h-100
+    .row.h-100
+      .col-md-8
+
+      .col-md-4.bg-white
+        .row.h-100.align-items-center
+          .col-md-10.mx-auto
             = yield
 

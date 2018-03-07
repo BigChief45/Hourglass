@@ -3,8 +3,14 @@
 %html
 %head
   = render 'layouts/head'
+  = stylesheet_link_tag 'registrations'
 
 %body
-  .container.m-5
-    = yield
+  .container-fluid.h-100
+    .row.h-100
+      .col-md-8
 
+      .col-md-4.bg-white
+        .row.h-100.align-items-center
+          .col-md-10.mx-auto
+            = yield
