@@ -1,0 +1,11 @@
+.card.rounded.my-5
+  .card-body
+    %h5.card-title
+      = link_to card do
+        = emojify card.icon, size: :small
+        %strong= card.name
+
+    / HEATMAP
+    .row
+      .col-md-12.mx-auto
+        .heatmap-summary{ id: "cal-heatmap-#{card.id}", 'data-punchcard': card.id }

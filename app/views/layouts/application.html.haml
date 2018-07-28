@@ -4,6 +4,9 @@
   %head
     = render 'layouts/head'
 
+    / Material Icons
+    = stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons'
+
     / Font Awesome
     = stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
 
@@ -12,37 +15,17 @@
     = javascript_include_tag '//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js'
     = stylesheet_link_tag '//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css'
 
+    = stylesheet_link_tag 'sidebar'
+
   %body
-    .container.m-5
-      .row.mb-2
-        .col-md-12
-          - if user_signed_in?
-            .float-right
-              .dropdown.show
-                %a.dropdown-toggle{'data-toggle': 'dropdown', href: '#'}= current_user.email
-                .dropdown-menu
-                  = link_to edit_user_registration_path, class: 'dropdown-item' do
-                    = image_tag 'icons/cog.png'
-                    Settings
-                  .dropdown-divider
-                  = link_to logout_path, method: :delete, class: 'dropdown-item' do
-                    = image_tag 'icons/door_out.png'
-                    Logout
+    .row.h-100
+      .col-sm-1.bg-primary.justify-content-center
+        = render 'layouts/sidebar'
 
-              %small
-                = Time.now.in_time_zone(current_user.time_zone).to_date.strftime('%A %B %d %Y')
-                (#{current_user.time_zone})
+      / CONTENT
+      .col-md-10.my-3
+        = render 'layouts/alerts'
+        = yield
 
-      .row
-        = render 'layouts/nav'
-
-        / CONTENT
-        .col-md-10
-          = render 'layouts/alerts'
-
-          = yield
-
-      %hr
-      = render 'layouts/footer'
-
-  #modal-container
+        %hr
+        = render 'layouts/footer'

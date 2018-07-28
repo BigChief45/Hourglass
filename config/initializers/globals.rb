@@ -1,1 +1,1 @@
-BOOTSTRAP_THEME = 'yeti'
+BOOTSTRAP_THEME = 'pulse'

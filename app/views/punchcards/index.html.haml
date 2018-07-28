@@ -1,10 +1,13 @@
 %h2
-  Punchcards
+  %i.material-icons.text-muted sim_card
+  My Punchcards
 
-  %ul.list-inline.pull-right
-    %li
-      = link_to new_punchcard_path do
-        = image_tag 'icons/time_add.png', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'Create Punchcard'
+  .pull-right
+    = link_to new_punchcard_path, class: 'btn btn-success rounded' do
+      %i.fa.fa-plus
+      %strong Create Punchcard
 
-- @cards.each do |card|
-  = render 'punchcard', card: card
+.card-deck
+  - @cards.each_slice(4) do |cards|
+    - cards.each do |card|
+      = render 'punchcard_summary', card: card

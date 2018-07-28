@@ -1,0 +1,18 @@
+%h3.my-3
+  Latest Entries
+
+  .pull-right
+    = link_to punchcard_records_path(@card), class: 'btn btn-secondary btn-sm rounded' do
+      %strong View All Entries
+
+%ul.list-group.list-group-flush
+  - @card.records.last(5).each do |record|
+    = link_to [@card, record], class: 'list-group-item list-group-item-action flex-column align-items-start' do
+      .d-flex.w-100.justify-content-between
+        %h6.mb-1
+          %strong= record.date
+        %span.badge.badge-primary.badge-pill
+          %i.fa.fa-clock-o
+          = record.hours
+
+      %p.mb-1= simple_format h record.description

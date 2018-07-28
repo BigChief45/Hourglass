@@ -27,4 +27,4 @@
           = goal_fields.input :monthly_hours, input_html: { in: 0.5..10, step: 0.5 }, required: true
 
   .form-group
-    = f.submit ( f.object.new_record? ? 'Add Punchcard' : 'Save Changes'), class: 'btn btn-success'
+    = f.submit ( f.object.new_record? ? 'Create Punchcard' : 'Save Changes'), class: 'btn btn-success'

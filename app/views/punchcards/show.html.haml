@@ -1,33 +1,36 @@
-.panel.panel-default
-  .panel-body
-    = render 'shared/errors', model: @record
+%h2
+  = emojify @card.icon, size: :medium
+  = @card.name
 
-    .row
-      .col-md-2
-        .text-center
-          = emojify @card.icon, size: :big
-          %h3= @card.name
+  .pull-right
+    .btn-toolbar
+      .btn-group.btn-group-sm.mr-2
+        = link_to new_punchcard_record_path(@card), class: 'btn btn-success rounded' do
+          %i.fa.fa-plus
+          %strong Punch New Entry
+      .btn-group.btn-group-sm.mr-2
+        = link_to [:edit, @card], class: 'btn btn-secondary' do
+          %i.fa.fa-pencil
+        = link_to @card, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary' do
+          %i.fa.fa-trash
 
-          %ul.list-inline
-            %li= link_to 'Edit', [:edit, @card]
-            %li= link_to 'Delete', @card, method: :delete, data: { confirm: 'Are you sure?' }
+%p.text-muted= @card.description
 
-          %button.btn.btn-success.btn-sm{ 'data-toggle': 'modal', 'data-target': '#new-record-modal' }
-            %span.fa.fa-calendar-check-o
-            Punch
-
-      .col-md-10
-        = render 'punchcards/heatmap'
-        = render 'punchcards/stats'
-
-    %hr
-
-    .row
-      .col-md-12
-        #record_area
-          %h3 Latest Entries
-
-          = render @card.records.all.order('created_at DESC').limit(5)
+.row
+  .col-md-12
+    / NAV
+    %ul#cardTabs.nav.nav-tabs.mb-3
+      %li.nav-item
+        %a#overview-tab.nav-link.active{href: '#overview', 'data-toggle': 'tab'}
+          %strong Overview
+      %li.nav-item
+        %a#entries-tab.nav-link{href: '#entries', 'data-toggle': 'tab'}
+          %strong Entries
+          %span.badge.badge-primary.badge-pill= @card.records.count
 
 
-    = render 'records/form'
+#cardTabsContent.tab-content
+  #overview.tab-pane.fade.show.active
+    = render 'overview'
+  #entries.tab-pane.fade
+    = render 'entries'
