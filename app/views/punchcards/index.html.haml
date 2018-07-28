@@ -7,7 +7,9 @@
       %i.fa.fa-plus
       %strong Create Punchcard
 
-.card-deck
-  - @cards.each_slice(4) do |cards|
+
+- @cards.each_slice(3) do |cards|
+  .row
     - cards.each do |card|
-      = render 'punchcard_summary', card: card
+      .col-md-4
+        = render 'punchcard_summary', card: card

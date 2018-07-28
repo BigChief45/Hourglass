@@ -9,3 +9,9 @@
     .row
       .col-md-12.mx-auto
         .heatmap-summary{ id: "cal-heatmap-#{card.id}", 'data-punchcard': card.id }
+
+  - unless card.records.empty?
+    .card-footer
+      %small.text-muted
+        Last Updated on
+        = card.records.last.date.strftime('%A %B %d %Y')
