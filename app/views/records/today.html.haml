@@ -1,24 +1,38 @@
-%h2
-  %i.material-icons.text-muted today
-  Today's Entries
+.page-header
+  %h1.page-title
+    Today's Entries
+    - unless @todays_records.blank?
+      %span.badge.badge-default= @todays_records.count
 
 .row.my-5
-  .col-md-12
+  .col
     - unless @todays_records.blank?
-      .list-group
-        - @todays_records.each do |record|
-          = link_to [record.punchcard, record], class: 'list-group-item list-group-item-action flex-column align-items-start' do
-            .d-flex.w-100.justify-content-between
-              %h6.mb-1
-                = emojify record.punchcard.icon, size: :small
-                %strong= record.date.strftime('%A %B %d %Y')
-              %h6.text-muted
-                %span.fa.fa-clock-o
-                = record.hours
-                Hours
+      .card
+        .table-responsive
+          %table.table.table-hover.table.outline.table-vcenter.text-nowrap.card-table
+            %thead
+              %tr
+                %th.text-center
+                %th Punchcard
+                %th Date
+                %th Decription
+                %th.text-center Hours
+                %th
+            %tbody
+              - @todays_records.each do |record|
+                %tr
+                  %td.text-center= emojify record.punchcard.icon, size: :small
+                  %td= record.punchcard.name
+                  %td= record.date.strftime('%A %B %d %Y')
+                  %td= simple_format h record.description
+                  %td.text-center
+                    %span.badge.badge-default= record.hours
+                  %td.text-center
+                    = link_to [record.punchcard, record], class: 'btn btn-sm btn-secondary' do
+                      %i.fe.fe-eye
 
-            %p.mb-1= simple_format h record.description
-
+                    = link_to [:edit, record.punchcard, record], class: 'btn btn-sm btn-secondary ml-2' do
+                      %i.fe.fe-edit-2
     - else
       .jumbotron
         .text-center
