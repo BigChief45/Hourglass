@@ -1,15 +1,14 @@
 = simple_form_for([@card, @record]) do |f|
-  .form-row
-    .col-md-6
+  .row
+    .col-md-2
       = f.input :date, required: true
-    .col-md-6
+    .col-md-10
       = f.input :hours, input_html: { in: 0.5..10, step: 0.5 }, required: true
-
 
   .form-group
     = f.input :description, autofocus: true, input_html: { rows: 5, style: 'resize: vertical;', placeholder: 'Enter record description here...' }, required: true
 
-  .form-group
+  .form-footer
     = f.button :submit, class: 'btn btn-success'
     %small
       or
