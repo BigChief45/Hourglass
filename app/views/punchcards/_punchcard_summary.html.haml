@@ -11,11 +11,8 @@
       = link_to card, class: 'btn btn-secondary btn-sm ml-2', 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'View Punchcard' do
         %i.fe.fe-eye
 
-  .card-body
-    / HEATMAP
-    .row.mx-auto
-      .mx-auto
-        .heatmap-summary{ id: "cal-heatmap-#{card.id}", 'data-punchcard': card.id }
+  .card-body.mx-auto
+    .heatmap-summary{ id: "cal-heatmap-#{card.id}", 'data-punchcard': card.id }
 
   - unless card.records.empty?
     .card-footer

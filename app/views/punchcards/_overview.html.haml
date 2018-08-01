@@ -1,82 +1,25 @@
-%h3.my-3 Overview
+.col-sm-6.col-lg-3
+  .card.p-3
+    .d-flex.align-items-center
+      %span.stamp.stamp-md.bg-blue.mr-3
+        %i.fe.fe-clock
+      %div
+        %h4.m-0
+          = format_hours(@card.total_hours)
+          %small Hours
+        %small.text-muted
+          Since
+          = @card.start_time
 
-%dl.row
-  %dt.col-sm-2.text-uppercase.text-muted First Entry On
-  %dd.col-sm-10= @card.start_time
-
-.row.my-2
-  .col-md-6
-    / STATS
-    .card.rounded.h-100
-      %h6.card-header.text-uppercase Stats
-      .card-body.mx-auto
-        .text-center
-          %ul.list-inline
-            %li.list-inline-item.mx-5
-              %h2= format_hours(@card.total_hours)
-              %strong.text-uppercase.text-muted Total Hours
-            %li.list-inline-item.mx-5
-              %h2= @card.records.count
-              %strong.text-uppercase.text-muted Total Entries
-  .col-md-6
-    / GOAL
-    .card.rounded.h-100
-      %h6.card-header.text-uppercase Goal
-      .card-body
-        - if @card.goal.present?
-          .progress.my-1
-            .progress-bar{class: "#{progress_bar_color(@card.goal, @card.current_month_hours)}", style: "width: #{progress_bar_width(@card.goal, @card.current_month_hours)}%"}
-
-          %p.text-center
-            %strong= "#{@card.current_month_hours} / #{@card.goal.monthly_hours}"
-            Hours
-
-        - else
-          %p.small
-            You haven't set any goal for this punchcard
-            %br
-            = link_to 'Add goal', [:edit, @card]
-
-/ Full Heatmap
-.card.rounded
-  %h6.card-header.text-uppercase Heatmap
-  .card-body.mx-auto
-    .heatmap-full{ id: "cal-heatmap-#{@card.id}", 'data-punchcard': @card.id }
-
-    .btn-group.btn-group-sm
-      .btn.btn-secondary{ id: "cal-previous-#{@card.id}" }
-        %span.fa.fa-arrow-left
-      .btn.btn-secondary{ id: "cal-next-#{@card.id}" }
-        %span.fa.fa-arrow-right
-
-
-:javascript
-  /* Get the corresponding Punchcard ID */
-  var punchcard_id = $(".heatmap-full").attr('data-punchcard');
-  var path = '/punchcards/' + punchcard_id + '/records.json';
-
-  var cal = new CalHeatMap();
-  cal.init({
-    itemSelector: '.heatmap-full',
-    data: path,
-    start: new Date().setMonth(new Date().getMonth() - 11),
-    maxDate: new Date(),
-    domain: "month",
-    subDomain: "day",
-    itemName: ["hour", "hours"],
-    cellSize: 12,
-    range: 12,
-    previousSelector: "#cal-previous",
-    nextSelector: "#cal-next",
-    rowLimit: 7,
-    highlight: "now",
-    legendVerticalPosition: "bottom",
-    legendHorizontalPosition: "right",
-    tooltip: true,
-    weekStartOnMonday: false,
-    domainLabelFormat: "%b",
-    label: {
-      position: "top"
-    },
-    legend: [1, 3, 5]
-  });
+.col-sm-6.col-lg-3
+  .card.p-3
+    .d-flex.align-items-center
+      %span.stamp.stamp-md.bg-green.mr-3
+        %i.fe.fe-layers
+      %div
+        %h4.m-0
+          = @card.records.count
+          %small Entries
+        %small.text-muted
+          Since
+          = @card.start_time

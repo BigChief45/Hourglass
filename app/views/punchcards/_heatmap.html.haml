@@ -1,0 +1,44 @@
+.card
+  .card-header
+    %h3.card-title Heatmap
+
+    .card-options
+      %a.btn.btn-sm.btn-secondary{ href: '#', id: "cal-previous-#{@card.id}" }
+        %i.fe.fe-arrow-left
+      %a.btn.btn-sm.btn-secondary.ml-2{ href: '#', id: "cal-next-#{@card.id}" }
+        %i.fe.fe-arrow-right
+
+  .card-body.mx-auto
+    .heatmap-full{ id: "cal-heatmap-#{@card.id}", 'data-punchcard': @card.id }
+
+
+:javascript
+  // Get the corresponding Punchcard ID
+  var punchcard_id = $(".heatmap-full").attr('data-punchcard');
+  var path = '/punchcards/' + punchcard_id + '/records.json';
+
+  var cal = new CalHeatMap();
+  cal.init({
+    itemSelector: '.heatmap-full',
+    data: path,
+    start: new Date().setMonth(new Date().getMonth() - 11),
+    maxDate: new Date(),
+    domain: "month",
+    subDomain: "day",
+    itemName: ["hour", "hours"],
+    cellSize: 12,
+    range: 12,
+    previousSelector: "#cal-previous",
+    nextSelector: "#cal-next",
+    rowLimit: 7,
+    highlight: "now",
+    legendVerticalPosition: "bottom",
+    legendHorizontalPosition: "right",
+    tooltip: true,
+    weekStartOnMonday: false,
+    domainLabelFormat: "%b",
+    label: {
+      position: "top"
+    },
+    legend: [1, 3, 5]
+  });

@@ -1,0 +1,27 @@
+.card
+  .card-header
+    %h3.card-title Latest Entries
+
+    .card-options
+      = link_to punchcard_records_path(@card), class: 'btn btn-secondary btn-sm' do
+        View All Entries
+
+  .table-responsive
+    %table.table.table-hover.table-outline.table-vcenter.text-nowrap.card-table
+      %thead
+        %tr
+          %th.text-center Date
+          %th Description
+          %th.text-center Hours
+          %th
+      %tbody
+        - @card.records.last(5).each do |record|
+          %tr
+            %td.text-center= record.date
+            %td= record.description
+            %td.text-center
+              %span.badge.badge-default= record.hours
+            %td.text-center
+              = link_to [@card, record], class: 'btn btn-sm btn-secondary' do
+                %i.fe.fe-eye
+

@@ -1,36 +1,31 @@
-%h2
-  = emojify @card.icon, size: :medium
-  = @card.name
+.page-header
+  %h1.page-title
+    = emojify @card.icon, size: :medium
+    = @card.name
 
-  .pull-right
+  .page-options.d-flex
     .btn-toolbar
       .btn-group.btn-group-sm.mr-2
-        = link_to new_punchcard_record_path(@card), class: 'btn btn-success rounded' do
-          %i.fa.fa-plus
+        = link_to new_punchcard_record_path(@card), class: 'btn btn-success' do
+          %i.fe.fe-check-square
           %strong Punch New Entry
       .btn-group.btn-group-sm.mr-2
         = link_to [:edit, @card], class: 'btn btn-secondary' do
-          %i.fa.fa-pencil
+          %i.fe.fe-edit-2
+          Edit
         = link_to @card, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary' do
-          %i.fa.fa-trash
+          %i.fe.fe-trash
+          Delete
 
-%p.text-muted= @card.description
+.row.row-cards
+  = render 'overview'
 
-.row
-  .col-md-12
-    / NAV
-    %ul#cardTabs.nav.nav-tabs.mb-3
-      %li.nav-item
-        %a#overview-tab.nav-link.active{href: '#overview', 'data-toggle': 'tab'}
-          %strong Overview
-      %li.nav-item
-        %a#entries-tab.nav-link{href: '#entries', 'data-toggle': 'tab'}
-          %strong Entries
-          %span.badge.badge-primary.badge-pill= @card.records.count
+  .col-lg-12
+    = render 'heatmap'
 
-
-#cardTabsContent.tab-content
-  #overview.tab-pane.fade.show.active
-    = render 'overview'
-  #entries.tab-pane.fade
-    = render 'entries'
+.row.row-cards
+  .col-lg.6
+    = render 'latest_entries'
+  .col-lg-6
+    = render 'goal_progress'
+    
