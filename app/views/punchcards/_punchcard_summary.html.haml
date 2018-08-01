@@ -1,13 +1,20 @@
-.card.rounded.my-5
-  .card-body
-    %h5.card-title
+.card
+  .card-header
+    %h3.card-title
       = link_to card do
         = emojify card.icon, size: :small
-        %strong= card.name
+        = card.name
 
+    .card-options
+      = link_to new_punchcard_record_path(card), class: 'btn btn-success btn-sm', 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'New Entry' do
+        %i.fe.fe-check-square
+      = link_to card, class: 'btn btn-secondary btn-sm ml-2', 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'View Punchcard' do
+        %i.fe.fe-eye
+
+  .card-body
     / HEATMAP
-    .row
-      .col-md-12.mx-auto
+    .row.mx-auto
+      .mx-auto
         .heatmap-summary{ id: "cal-heatmap-#{card.id}", 'data-punchcard': card.id }
 
   - unless card.records.empty?

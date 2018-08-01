@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require moment
+//= require tabler
 //= require bootstrap-datetimepicker
 //= require_tree .

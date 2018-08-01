@@ -4,28 +4,16 @@
   %head
     = render 'layouts/head'
 
-    / Material Icons
-    = stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons'
-
-    / Font Awesome
-    = stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
-
     / Cal-Heat Map CDN
     = javascript_include_tag '//d3js.org/d3.v3.min.js'
     = javascript_include_tag '//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js'
     = stylesheet_link_tag '//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css'
 
-    = stylesheet_link_tag 'sidebar'
-
   %body
-    .row.h-100
-      .col-sm-1.bg-primary.justify-content-center
-        = render 'layouts/sidebar'
+    = render 'layouts/header'
+    = render 'layouts/nav'
 
-      / CONTENT
-      .col-md-10.my-3
-        = render 'layouts/alerts'
+    / CONTENT
+    .my-3.my-md-5
+      .container
         = yield
-
-        %hr
-        = render 'layouts/footer'

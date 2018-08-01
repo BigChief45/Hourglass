@@ -1,15 +1,15 @@
-%h2
-  %i.material-icons.text-muted sim_card
-  My Punchcards
+.page-header
+  %h1.page-title
+    My Punchcards
 
-  .pull-right
-    = link_to new_punchcard_path, class: 'btn btn-success rounded' do
-      %i.fa.fa-plus
-      %strong Create Punchcard
+  .page-options.d-flex
+    = link_to new_punchcard_path, class: 'btn btn-sm btn-success' do
+      %i.fe.fe-plus
+      Create Punchcard
 
 
 - @cards.each_slice(3) do |cards|
-  .row
+  .row.row-cards
     - cards.each do |card|
       .col-md-4
         = render 'punchcard_summary', card: card
