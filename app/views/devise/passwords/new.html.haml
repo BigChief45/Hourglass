@@ -1,14 +1,16 @@
-%h2 Forgot your password?
+.card
+  .card-body.p-6
+    .card-title
+      Forgot your password?
 
-%p.small.text-muted Enter your email address to reset your password.
+    %p.text-muted Enter your email address to reset your password.
 
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = devise_error_messages!
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      = devise_error_messages!
 
-  .form-group
-    = f.email_field :email, autofocus: true, placeholder: 'E-Mail', class: 'form-control'
+      .form-group
+        = f.label :email, class: 'form-label'
+        = f.email_field :email, autofocus: true, placeholder: 'Enter E-Mail', class: 'form-control'
 
-  .form-group
-    = f.submit 'Send me reset password instructions', class: 'btn btn-info btn-block'
-
-%p= render 'devise/shared/links'
+      .form-footer
+        = f.submit 'Send me reset password instructions', class: 'btn btn-primary btn-block'

@@ -1,21 +1,25 @@
-%h2
-  %strong Sign In
+.card
+  .card-body.p-6
+    .card-title
+      Sign In
 
-%p.small
-  Or
-  = link_to 'create an account', register_path
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      // ALERTS
+      = render 'layouts/alerts'
 
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  // ALERTS
-  = render 'layouts/alerts'
+      .form-group
+        = f.label :email, class: 'form-label'
+        = f.email_field :email, autofocus: true, placeholder: 'Enter email', class: 'form-control'
 
-  .form-group
-    = f.email_field :email, autofocus: true, placeholder: 'E-mail', class: 'form-control'
+      .form-group
+        = f.label :password, class: 'form-label'
+        = f.password_field :password, autocomplete: 'off', placeholder: 'Enter Password', class: 'form-control'
 
-  .form-group
-    = f.password_field :password, autocomplete: 'off', placeholder: 'Password', class: 'form-control'
+      .form-group.text-center
+        = f.submit 'Sign In', class: 'form-control btn btn-primary'
 
-  .form-group.text-center
-    = f.submit 'Sign In', class: 'form-control btn btn-primary'
+      %p.small.text-center= link_to 'Forgot your password?', new_user_password_path
 
-  %p= link_to 'Forgot your password?', new_user_password_path
+.text-center.text-uted
+  Don't have an account yet?
+  = link_to 'Sign up', register_path

@@ -3,15 +3,10 @@
 %html
 %head
   = render 'layouts/head'
-  = stylesheet_link_tag 'sessions'
 
 %body
-  .container-fluid.h-100
-    .row.h-100
-      .col-md-8
-
-      .col-md-4.bg-white
-        .row.h-100.align-items-center
-          .col-md-10.mx-auto
-            = yield
-
+  .container
+    .row
+      .col.col-login.mx-auto
+        .my-8
+          = yield
