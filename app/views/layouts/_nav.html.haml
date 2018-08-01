@@ -1,11 +1,16 @@
-.col-md-2
-  = link_to root_path do
-    = image_tag 'https://png.icons8.com/dusk/64/000000/timer.png', class: 'mb-5'
+.header.collapse.d-lg-flex.p-0
+  .container
+    .row.align-items-center
 
-  %nav.nav.flex-column
-    = link_to punchcards_path, class: 'nav-link' do
-      = image_tag 'icons/time.png'
-      Punchcards
-    = link_to today_path, class: 'nav-link' do
-      = image_tag 'icons/date.png'
-      Today
+      / Nav
+      .col-lg.order-lg-first
+        %ul.nav.nav-tabs.border-0.flex-column.flex-lg-row
+          %li.nav-item
+            = link_to root_path, class: 'nav-link' do
+              %i.fe.fe-grid
+              My Punchcards
+
+          %li.nav-item
+            = link_to today_path, class: 'nav-link' do
+              %i.fe.fe-calendar
+              Today
