@@ -1,25 +1,30 @@
-%h2
-  %strong Sign Up
+.card
+  .card-body.p-6
+    .card-title
+      Sign Up
 
-%p.small
-  Or
-  = link_to 'sign in to your account', login_path
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
 
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
+      .form-group
+        = f.label :email, class: 'form-label'
+        = f.email_field :email, placeholder: 'Enter E-Mail', class: 'form-control'
 
-  .form-group
-    = f.email_field :email, placeholder: 'E-Mail', class: 'form-control'
+      .form-group
+        = f.label :password, class: 'form-label'
+        = f.password_field :password, autocomplete: 'off', placeholder: 'Enter Password', class: 'form-control'
+        -if @minimum_password_length
+          %small.form-text.text-muted
+            =@minimum_password_length
+            characters minimum
 
-  .form-group
-    = f.password_field :password, autocomplete: 'off', placeholder: 'Password', class: 'form-control'
-    -if @minimum_password_length
-      %small.form-text.text-muted
-        =@minimum_password_length
-        characters minimum
+      .form-group
+        = f.label :password_confirmation, class: 'form-label'
+        = f.password_field :password_confirmation, autocomplete: 'off', placeholder: 'Enter Password Confirmation', class: 'form-control'
 
-  .form-group
-    = f.password_field :password_confirmation, autocomplete: 'off', placeholder: 'Password Confirmation', class: 'form-control'
+      .form-footer
+        = f.submit 'Sign Up', class: 'btn btn-primary btn-block'
 
-  .form-group
-    = f.submit 'Sign Up', class: 'form-control btn btn-success'
+.text-center.text-muted
+  Already have an account?
+  = link_to 'Sign In', login_path
