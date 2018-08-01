@@ -3,7 +3,7 @@
   = render 'shared/errors', model: @card
 
   .row
-    .col-md-12
+    .col
       .form-group
         = f.input :name, autofocus: true
 
@@ -14,9 +14,10 @@
         = f.input :icon, placeholder: 'Example: :cat:'
         %small.form-text.text-muted
           = link_to 'Browse Emojis', 'http://www.emoji-cheat-sheet.com/', target: '_blank'
-  .row
-    .col-md-12
-      %h4 Goal
+
+  .row.mt-3
+    .col
+      %h3 Goal
       %p.text-muted
         You can define an optional
         %strong monthly goal
@@ -26,5 +27,5 @@
         .form-group
           = goal_fields.input :monthly_hours, input_html: { in: 0.5..10, step: 0.5 }, required: true
 
-  .form-group
+  .form-footer
     = f.submit ( f.object.new_record? ? 'Create Punchcard' : 'Save Changes'), class: 'btn btn-success'

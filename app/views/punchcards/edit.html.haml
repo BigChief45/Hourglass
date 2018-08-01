@@ -1,3 +1,8 @@
-%h2 Edit Punchcard
+.card
+  .card-header
+    %h3.card-title
+      Edit
+      = @card.name
 
-= render 'form'
+  .card-body
+    = render 'form'
