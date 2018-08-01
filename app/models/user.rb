@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-
   has_many :punchcards, dependent: :destroy
+
+  def initial
+    self.email[0].upcase
+  end
 end
