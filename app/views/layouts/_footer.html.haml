@@ -1,21 +1,16 @@
-.row
-  .col
-    %footer.text-center
-      %p
-        = link_to 'Home', root_path
-        ·
-        = link_to 'Terms & Conditions', root_path
-        ·
-        = link_to 'Privacy', root_path
-        ·
-        = link_to 'About', root_path
-        ·
-        = link_to 'FAQ', root_path
-        ·
-        = link_to 'Contact', root_path
+%footer.footer
+  .container
+    .row.align-items-center.flex-row-reverse
+      .col-auto.ml-lg-auto
+        .row.align-items-center
+          .col-auto
+            %ul.list-inline.list-inline-dots.mb-0
+              %li.list-inline-item= link_to 'Home', root_path
+              %li.list-inline-item= link_to 'Terms & Conditions', root_path
+              %li.list-inline-item= link_to 'Privacy', root_path
+              %li.list-inline-item= link_to 'About', root_path
+              %li.list-inline-item= link_to 'FAQ', root_path
+              %li.list-inline-item= link_to 'Contact', root_path
 
-      %p Hourglass &copy; 2016
-
-      %p
-        %a{:href => "#"}
-          %i.fa.fa-facebook
+      .col-12.col-lg-auto.mt-3.mt-lg-0.text-center
+        Copywright &copy; 2018 Hourglass
