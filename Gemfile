@@ -12,6 +12,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 
+gem 'bootstrap', '~> 4.1.1'
+gem 'tabler-rubygem'
 gem 'haml'
 gem 'devise'
 gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
