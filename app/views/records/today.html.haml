@@ -34,10 +34,7 @@
                     = link_to [:edit, record.punchcard, record], class: 'btn btn-sm btn-secondary ml-2' do
                       %i.fe.fe-edit-2
     - else
-      .jumbotron
-        .text-center
-          = image_tag 'https://png.icons8.com/dusk/64/000000/edit-property.png'
-          %p
-            There are no records for today. Visit
-            = link_to 'your punchcards', punchcards_path
-            to log some records.
+      %p.text-center
+        There are no records for today. Visit
+        = link_to 'your punchcards', punchcards_path
+        to log some records.
