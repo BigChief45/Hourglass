@@ -1,34 +1,35 @@
-%h2= @record.punchcard.name
+.page-header
+  %h1.page-title
+    = emojify @card.icon, size: :medium
+    = @record.punchcard.name
 
-%h5.text-center
-  = @record.date.strftime("%A %B %d %Y")
-  %br
-  %small.text-muted
-    %span.fa.fa-clock-o
-    = @record.hours
+.card
+  .card-header
+    %h3.card-title
+      = @record.date.strftime('%A %B %d %Y')
+      %span.badge.badge-default
+        %i.fe.fe-clock
+        = @record.hours
+        Hours
 
-.row
-  .col-md-12
-    = @record.description.html_safe
+    .card-options
+      = link_to [:edit, @card, @record], class: 'btn btn-sm btn-secondary' do
+        %i.fe.fe-edit-2
+        Edit
 
-    / PAGING
-    %nav
-      %ul.pagination.justify-content-center
+      = link_to [@card, @record], method: :delete, class: 'btn btn-sm btn-secondary ml-2', data: { confirm: 'Are you sure?' } do
+        %i.fe.fe-trash
+        Delete
+
+  .card-body
+    = simple_format h @record.description
+
+    .row.mt-5
+      .col
         - unless @record.previous.blank?
-          %li.page-item
-            = link_to '←', [@record.punchcard, @record.previous], class: 'page-link'
-
+          = link_to [@record.punchcard, @record.previous], class: 'btn btn-sm btn-pill btn-secondary' do
+            %i.fe.fe-chevron-left
         - unless @record.next.blank?
-          %li.page-item
-            = link_to '→', [@record.punchcard, @record.next], class: 'page-link'
-
-.text-center
-  %ul.list-inline
-    %li.list-inline-item
-      = link_to [:edit, @card, @record] do
-        = image_tag 'icons/pencil.png'
-        Edit Record
-    %li.list-inline-item
-      = link_to [@card, @record], method: :delete, data: { confirm: 'Are you sure?' } do
-        = image_tag 'icons/delete.png'
-        Delete Record
+          .float-right
+            = link_to [@record.punchcard, @record.next], class: 'btn btn-sm btn-pill btn-secondary' do
+              %i.fe.fe-chevron-right
