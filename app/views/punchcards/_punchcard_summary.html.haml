@@ -6,7 +6,7 @@
         = card.name
 
     .card-options
-      = link_to new_punchcard_record_path(card), class: 'btn btn-success btn-sm', 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'New Entry' do
+      = link_to new_punchcard_record_path(card), class: 'btn btn-secondary btn-sm', 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Create New Entry' do
         %i.fe.fe-check-square
       = link_to card, class: 'btn btn-secondary btn-sm ml-2', 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'View Punchcard' do
         %i.fe.fe-eye
