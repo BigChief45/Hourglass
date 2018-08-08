@@ -47,10 +47,10 @@ class RecordsController < ApplicationController
 
       respond_to do |format|
         if @record.save
-          format.html { redirect_to root_path, flash: { success: 'Record punched successfully.' } }
+          format.html { redirect_to root_path, flash: { notice: 'Entry created successfully.' } }
         else
           format.js
-          format.html { render :new, flash: { danger: 'Error punching record.' } }
+          format.html { render :new, flash: { danger: 'Error creating entry.' } }
         end
       end
     end

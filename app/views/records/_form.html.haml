@@ -1,4 +1,6 @@
 = simple_form_for([@card, @record]) do |f|
+  = render 'shared/errors', model: @record
+
   .row
     .col-md-2
       = f.input :date, required: true
