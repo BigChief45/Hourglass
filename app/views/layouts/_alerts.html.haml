@@ -1,7 +1,13 @@
-- flash.each do |name, msg|
-  - if name == 'alert'
-    = content_tag :div, msg, class: "alert alert-danger alert-dismissable"
-  - elsif name == 'notice'
-    = content_tag :div, msg, class: "alert alert-success alert-dismissable"
-  - else
-    = content_tag :div, msg, class: "alert alert-#{name} alert-dismissable"
+.container.mt-5
+  - flash.each do |name, msg|
+    - if name == 'alert'
+      = tag.div class: 'alert alert-icon alert-danger' do
+        = tag.i class: 'fe fe-alert-triangle mr-2'
+        = msg
+    - elsif name == 'notice'
+      = tag.div class: 'alert alert-icon alert-success' do
+        = tag.i class: 'fe fe-check mr-2'
+        = msg
+    - else
+      = tag.div class: "alert alert-#{name}" do
+        = msg
