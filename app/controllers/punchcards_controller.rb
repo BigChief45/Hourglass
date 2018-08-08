@@ -19,9 +19,9 @@ class PunchcardsController < ApplicationController
 
    respond_to do |format|
       if @card.save
-        format.html { redirect_to punchcards_path, :flash => { :success => 'Punchcard created successfully.' } }
+        format.html { redirect_to punchcards_path, flash: { notice: 'Punchcard created successfully' } }
       else
-        format.html { render 'new', :flash => { :danger => 'Error creating punchcard.' } }
+        format.html { render 'new', flash: { danger: 'Error creating punchcard.' } }
       end
     end
   end
