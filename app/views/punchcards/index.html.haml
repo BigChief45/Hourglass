@@ -8,8 +8,14 @@
       Create Punchcard
 
 
-- @cards.each_slice(3) do |cards|
-  .row.row-cards
-    - cards.each do |card|
-      .col-md-4
-        = render 'punchcard_summary', card: card
+- unless @cards.empty?
+  - @cards.each_slice(3) do |cards|
+    .row.row-cards
+      - cards.each do |card|
+        .col-md-4
+          = render 'punchcard_summary', card: card
+- else
+  %p.text-center
+    You don't have any punchcards.
+    = link_to 'Create a punchcard', new_punchcard_path
+    to start tracking time.

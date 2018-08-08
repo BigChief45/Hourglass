@@ -8,3 +8,7 @@
 
       .progress.progress-sm
         .progress-bar{class: "#{progress_bar_color(@card.goal, @card.current_month_hours)}", style: "width: #{progress_bar_width(@card.goal, @card.current_month_hours)}%"}
+    - else
+      %p.text-small
+        You haven't set a goal for this punchcard.
+        = link_to 'Set goal', edit_punchcard_path(@card)
