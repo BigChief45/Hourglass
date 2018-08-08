@@ -16,7 +16,7 @@ class Punchcard < ApplicationRecord
   end
 
   def start_time
-    unless self.records.empty?
+    if self.records.first.present?
       self.records.first.created_at.strftime('%B %d %Y')
     else
       self.created_at.strftime('%B %d %Y')
