@@ -22,5 +22,11 @@ module Workspace
       Devise::PasswordsController.layout proc { |controller| user_signed_in? ? 'application' : 'sessions' }
     end
 
+    # Use custom error pages
+    config.exceptions_app = self.routes
+
+    # Pundit forbidden page
+    config.action_dispatch.rescue_responses['Pundit::NotAuthorizedError'] = :forbidden
+
   end
 end
