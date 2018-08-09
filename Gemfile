@@ -23,6 +23,7 @@ gem 'gemoji'
 gem 'ransack'
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
+gem 'pundit'
 
 gem 'simple_form'
 

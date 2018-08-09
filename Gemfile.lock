@@ -135,6 +135,8 @@ GEM
     popper_js (1.14.3)
     public_suffix (3.0.1)
     puma (3.11.2)
+    pundit (2.0.0)
+      activesupport (>= 3.0.0)
     rack (2.0.3)
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
@@ -273,6 +275,7 @@ DEPENDENCIES
   momentjs-rails
   pg (~> 0.18)
   puma
+  pundit
   rails (= 5.1.4)
   rails_12factor
   ransack
