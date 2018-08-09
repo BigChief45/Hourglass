@@ -93,15 +93,15 @@ class RecordsController < ApplicationController
 
     private
 
-      def find_punchcard
-        @card = Punchcard.find(params[:punchcard_id])
-      end
+    def find_punchcard
+      @card = authorize Punchcard.find(params[:punchcard_id])
+    end
 
-      def find_record
-        @record = Record.find(params[:id])
-      end
+    def find_record
+      @record = authorize Record.find(params[:id])
+    end
 
-      def record_params
-        params.require(:record).permit(:date, :hours, :description, :punchcard_id)
-      end
+    def record_params
+      params.require(:record).permit(:date, :hours, :description, :punchcard_id)
+    end
 end
