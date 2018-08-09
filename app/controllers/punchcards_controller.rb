@@ -50,7 +50,7 @@ class PunchcardsController < ApplicationController
   private
 
     def find_punchcard
-      @card = Punchcard.find(params[:id])
+      @card = authorize Punchcard.find(params[:id])
     end
 
     def punchcard_params
