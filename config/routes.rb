@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get 'register', to: 'devise/registrations#new'
     get 'login', to: 'devise/sessions#new'
     delete 'logout', to: 'devise/sessions#destroy'
+    get 'settings', to: 'devise/registrations#edit'
   end
 
   resources :punchcards do
