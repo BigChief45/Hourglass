@@ -10,6 +10,14 @@ class RecordPolicy
     user.admin? or record.punchcard.user == user
   end
 
+  def new?
+    index?
+  end
+
+  def create?
+    index?
+  end
+
   def show?
     index?
   end

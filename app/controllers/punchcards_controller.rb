@@ -11,7 +11,6 @@ class PunchcardsController < ApplicationController
   end
 
   def show
-    @record = @card.records.build(hours: 1)
   end
 
   def create

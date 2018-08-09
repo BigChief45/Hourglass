@@ -10,6 +10,14 @@ class PunchcardPolicy
     user.admin? or punchcard.user == user
   end
 
+  def new?
+    true
+  end
+
+  def create?
+    true
+  end
+
   def show?
     index?
   end
