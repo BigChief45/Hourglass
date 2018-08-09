@@ -15,7 +15,7 @@
           %th.text-center Hours
           %th
       %tbody
-        - @card.records.limit(5).reverse.each do |record|
+        - @card.records.order(date: :desc).limit(5).each do |record|
           %tr
             %td.text-center= record.date
             %td= record.description
