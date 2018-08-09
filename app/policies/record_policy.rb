@@ -3,7 +3,7 @@ class RecordPolicy
 
   def initialize(user, record)
     @user = user
-    @record = punchcard
+    @record = record
   end
 
   def index?
