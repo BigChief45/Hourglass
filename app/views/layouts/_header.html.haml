@@ -26,3 +26,8 @@
               = link_to logout_path, method: :delete, class: 'dropdown-item' do
                 %i.dropdown-icon.fe.fe-log-out
                 Sign Out
+        - else
+          .nav-item.d-none.d-md-flex
+            = link_to 'Pricing', pricing_path, class: 'btn btn-sm btn-outline-success'
+          .nav-item.d-none.d-md-flex
+            = link_to 'Sign In', login_path
