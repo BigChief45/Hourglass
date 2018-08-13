@@ -7,21 +7,22 @@
       .d-flex.order-lg-2.ml-auto
 
         / User Dropdown
-        .dropdown
-          %a{href: '#', class: 'nav-link pr-0 leading-none', 'data-toggle': 'dropdown'}
-            %span.avatar.avatar-cyan= current_user.initial
-            %span.ml-2.d-none.d-lg-block
-              %span.text-default= current_user.email
-              - if current_user.admin
-                %small.text-muted.d-block.mt-1 Administrator
+        - if current_user
+          .dropdown
+            %a{href: '#', class: 'nav-link pr-0 leading-none', 'data-toggle': 'dropdown'}
+              %span.avatar.avatar-cyan= current_user.initial
+              %span.ml-2.d-none.d-lg-block
+                %span.text-default= current_user.email
+                - if current_user.admin
+                  %small.text-muted.d-block.mt-1 Administrator
 
-          .dropdown-menu.dropdown-menu-right.dropdown-menu-arrow
-            = link_to settings_path, class: 'dropdown-item' do
-              %i.dropdown-icon.fe.fe-settings
-              Settings
+            .dropdown-menu.dropdown-menu-right.dropdown-menu-arrow
+              = link_to settings_path, class: 'dropdown-item' do
+                %i.dropdown-icon.fe.fe-settings
+                Settings
 
-            .dropdown-divider
+              .dropdown-divider
 
-            = link_to logout_path, method: :delete, class: 'dropdown-item' do
-              %i.dropdown-icon.fe.fe-log-out
-              Sign Out
+              = link_to logout_path, method: :delete, class: 'dropdown-item' do
+                %i.dropdown-icon.fe.fe-log-out
+                Sign Out

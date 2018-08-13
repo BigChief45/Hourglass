@@ -1,0 +1,18 @@
+!!! 5
+
+%html
+  %head
+    %title Hourglass - Pricing
+
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+
+  %body
+    .page
+      .page-main
+        = render 'layouts/header'
+
+        / CONTENT
+        .my-3.my-md-5
+          .container
+            = yield
