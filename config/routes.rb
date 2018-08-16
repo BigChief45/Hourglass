@@ -16,7 +16,11 @@ Rails.application.routes.draw do
 
   get 'today', to: 'records#today'
 
-  root 'punchcards#index'
+  authenticated :user do
+    root to: 'punchcards#index'
+  end
+
+  root 'home#landing'
 
   # Error Pages
   match '/404', :to => 'errors#not_found', :via => :all
