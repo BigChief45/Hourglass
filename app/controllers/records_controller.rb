@@ -62,10 +62,10 @@ class RecordsController < ApplicationController
   def update
     respond_to do |format|
       if @record.update(record_params)
-        format.html { redirect_to root_path, notice: 'Record was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Entry was successfully updated.' }
       else
         format.js
-        format.html { render :edit, flash: { danger: 'Error trying to update record. '} }
+        format.html { render :edit, flash: { danger: 'Error trying to update entry. '} }
       end
     end
   end
@@ -73,7 +73,7 @@ class RecordsController < ApplicationController
   def destroy
     @record.destroy
     respond_to do |format|
-      format.html { redirect_to punchcards_path, notice: 'Record was successfully deleted.' }
+      format.html { redirect_to punchcards_path, notice: 'Entry was successfully deleted.' }
     end
   end
 
