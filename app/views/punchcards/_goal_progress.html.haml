@@ -8,6 +8,13 @@
 
       .progress.progress-sm
         .progress-bar{class: "#{progress_bar_color(@card.goal, @card.current_month_hours)}", style: "width: #{progress_bar_width(@card.goal, @card.current_month_hours)}%"}
+
+      - if @card.goal_completed?
+        %p.mt-2.text-center.text-success
+          %small
+            %i.fe.fe-check-circle
+            Congratulations! You have completed your goal for this month.
+
     - else
       %p.text-small
         You haven't set a goal for this punchcard.

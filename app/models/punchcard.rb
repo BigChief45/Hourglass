@@ -15,6 +15,14 @@ class Punchcard < ApplicationRecord
     self.records.where(date: Time.now.beginning_of_month..Time.now.end_of_month).sum(:hours)
   end
 
+  def goal_completed?
+    if self.goal.present?
+      self.current_month_hours >= self.goal.monthly_hours
+    else
+      false
+    end
+  end
+
   def start_time
     if self.records.first.present?
       self.records.first.created_at.strftime('%B %d %Y')
