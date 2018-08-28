@@ -1,12 +1,26 @@
 .page-header
-  %h1.page-title
-    Today's Entries
-    - unless @todays_records.blank?
-      %span.badge.badge-default= @todays_records.count
+  %h1.page-title Today's Report
 
-.row.my-5
-  .col
-    - unless @todays_records.blank?
+- unless @todays_records.blank?
+  .row.row-cards
+    .col-6.col-sm-4.col-lg-2
+      .card
+        .card-body.p-3.text-center
+          .h1.m-1
+            = @todays_records.count
+          .text-muted.mb-4
+            Entries
+
+    .col-6.col-sm-4.col-lg-2
+      .card
+        .card-body.p-3.text-center
+          .h1.m-1
+            = @todays_records.reduce(0) { |sum, r| sum + r.hours }
+          .text-muted.mb-4
+            Hours
+
+  .row.my-5
+    .col
       .card
         .table-responsive
           %table.table.table-hover.table.outline.table-vcenter.text-nowrap.card-table
@@ -24,7 +38,8 @@
                   %td.text-center= emojify record.punchcard.icon, size: :small
                   %td= record.punchcard.name
                   %td= record.date.strftime('%A %B %d %Y')
-                  %td= simple_format h record.description
+                  %td
+                    %small= simple_format h record.description
                   %td.text-center
                     %span.badge.badge-default= record.hours
                   %td.text-center
@@ -33,8 +48,8 @@
 
                     = link_to [:edit, record.punchcard, record], class: 'btn btn-sm btn-secondary ml-2' do
                       %i.fe.fe-edit-2
-    - else
-      %p.text-center
-        There are no records for today. Visit
-        = link_to 'your punchcards', punchcards_path
-        to log some records.
+- else
+  %p.text-center
+    There are no records for today. Visit
+    = link_to 'your punchcards', punchcards_path
+    to log some records.
