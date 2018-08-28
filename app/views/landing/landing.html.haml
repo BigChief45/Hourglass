@@ -1,0 +1,44 @@
+%section.welcome
+  %header
+    .container.d-flex.align-items-center
+
+      .menu.ml-auto
+        = link_to 'Pricing', pricing_path, class: 'text-white'
+        = link_to 'Sign In', login_path, class: 'text-white'
+
+  .container
+    .text-center
+      .welcome-header
+        %h1.welcome-title Time tracking made simple
+        %p.welcome-description Know exactly how much time you are investing in your favorite activies.
+
+      .my-8
+        = link_to 'View Pricing', pricing_path, class: 'btn btn-pill btn-green'
+        = link_to 'Features', root_path, class: 'btn btn-pill btn-white ml-2'
+
+      .welcome-browser
+        %svg{:height => "565", :preserveaspectratio => "xMidYMid meet", :version => "1.1", :viewbox => "0 0 966 565", :width => "966", :xmlns => "http://www.w3.org/2000/svg", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+          %image{:height => "565", :width => "966", :x => "0", "xlink:href" => "https://tabler.github.io/assets/images/macbook.png", :y => "0"}
+          %image{:height => "478", :width => "730", :x => "117", "xlink:href" => "https://tabler.github.io/assets/images/dashboard.png", :y => "26"}
+
+
+%section.pt-8.bg-white
+  .container
+    .text-center
+      %h2.section-title Features
+      %p.section-description.mb-6.text-muted
+        Hourglass comes with many awesome features
+
+    .row
+      .col-lg-4
+        %img{src: 'https://tabler.github.io/assets/images/features/features-1.png'}
+      .col-lg-6
+        %h3 Punchcards for different activities
+        %p.text-muted Create a punchcard for every activity you want to keep track of. A punchcard will contain a lot of information about how much time you are investing in the activity.
+
+    .row
+      .col-lg-6
+        %h3 Heatmaps and Graphs
+        %p.text-muted Watch how your time data fluctuates through the years with built-in heatmaps and graphs.
+      .col-lg-4
+        %img{src: 'https://tabler.github.io/assets/images/features/features-1.png'}
