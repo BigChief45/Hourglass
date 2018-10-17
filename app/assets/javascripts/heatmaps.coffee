@@ -1,4 +1,15 @@
 $ ->
+
+  # Parses the date to offset any incorrect timezone inconsistencies
+  dateParser = (data) ->
+    keys = Object.keys(data)
+    parsed = {}
+    for key of keys
+      `key = key`
+      newKey = parseInt(keys[key]) + parseInt(new Date(keys[key] * 1000).getTimezoneOffset() * 60)
+      parsed[newKey] = data[keys[key]]
+    parsed
+
   class Heatmaps
     constructor: ->
       punchcards = ($('.heatmap-summary').map ->
@@ -21,6 +32,7 @@ $ ->
             tooltip: true
             weekStartOnMonday: true
             domainLabelFormat: ''
+            afterLoadData: dateParser
 
   jQuery ->
     new Heatmaps

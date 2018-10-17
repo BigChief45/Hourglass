@@ -13,6 +13,16 @@
 
 
 :javascript
+  function dateParser(data) {
+    var keys = Object.keys(data);
+    var parsed = {};
+    for(key in keys) {
+      newKey = parseInt(keys[key]) + parseInt((new Date( keys[key] * 1000 )).getTimezoneOffset() * 60);
+      parsed[newKey] = data[keys[key]];
+    }
+    return parsed;
+  }
+
   // Get the corresponding Punchcard ID
   var punchcard_id = $(".heatmap-full").attr('data-punchcard');
   var path = '/punchcards/' + punchcard_id + '/records.json';
@@ -40,5 +50,6 @@
     label: {
       position: "top"
     },
-    legend: [1, 3, 5]
+    legend: [1, 3, 5],
+    afterLoadData: dateParser
   });
