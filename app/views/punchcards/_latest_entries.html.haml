@@ -18,10 +18,13 @@
         - @card.records.order(date: :desc).limit(5).each do |record|
           %tr
             %td.text-center= record.date
-            %td= record.description
+            %td
+              %small= simple_format h record.description
             %td.text-center
               %span.badge.badge-default= record.hours
             %td.text-center
               = link_to [@card, record], class: 'btn btn-sm btn-secondary' do
                 %i.fe.fe-eye
+              = link_to [:edit, record.punchcard, record], class: 'btn btn-sm btn-secondary ml-2' do
+                %i.fe.fe-edit-2
 
