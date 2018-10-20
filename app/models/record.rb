@@ -1,5 +1,5 @@
 class Record < ApplicationRecord
-  belongs_to :punchcard
+  belongs_to :punchcard, touch: true
 
   validates :date, :presence => true
   validates :date, :uniqueness => { scope: :punchcard_id }

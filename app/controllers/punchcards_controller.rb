@@ -3,7 +3,7 @@ class PunchcardsController < ApplicationController
   before_action :find_punchcard, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cards = current_user.punchcards.all.includes(:records).sort_by(&:total_hours).reverse
+    @cards = current_user.punchcards.all.includes(:records).order(updated_at: :desc)
   end
 
   def new
