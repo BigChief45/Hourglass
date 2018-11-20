@@ -6,7 +6,7 @@
       %div
         %h4.m-0
           = format_hours(@card.total_hours)
-          %small Hours
+          %small Total Hours
         %small.text-muted
           Since
           = @card.start_time
@@ -19,7 +19,7 @@
       %div
         %h4.m-0
           = @card.records.count
-          %small Entries
+          %small Total Entries
         %small.text-muted
           Since
           = @card.start_time
