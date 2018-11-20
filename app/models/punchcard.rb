@@ -11,8 +11,28 @@ class Punchcard < ApplicationRecord
     self.records.sum(:hours)
   end
 
+  def current_month_records
+    self.records.where(date: Time.now.beginning_of_month..Time.now.end_of_month)
+  end
+
+  def current_week_records
+    self.records.where(date: Time.now.beginning_of_week..Time.now.end_of_week)
+  end
+
+  def previous_week_hours
+    self.records.where(date: 2.weeks.ago..1.week.ago).sum(:hours)
+  end
+
+  def current_week_hours
+    current_week_records.sum(:hours)
+  end
+
+  def previous_month_hours
+    self.records.where(date: 1.month.ago).sum(:hours)
+  end
+
   def current_month_hours
-    self.records.where(date: Time.now.beginning_of_month..Time.now.end_of_month).sum(:hours)
+    current_month_records.sum(:hours)
   end
 
   def goal_completed?

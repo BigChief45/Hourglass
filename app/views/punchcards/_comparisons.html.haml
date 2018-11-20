@@ -1,0 +1,20 @@
+.row
+  / Weekly Average
+  .col-md-6
+    .card
+      .card-body.p-3.text-center
+        = show_hours_diff(@card.current_week_hours, @card.previous_week_hours)
+        .h1.m-0
+          = @card.current_week_hours
+        .text-muted.mb-4
+          Hours This Week
+
+  / Monthly Average
+  .col-md-6
+    .card
+      .card-body.p-3.text-center
+        = show_hours_diff(@card.current_month_hours, @card.previous_month_hours)
+        .h1.m-0
+          = @card.current_month_hours
+        .text-muted.mb-4
+          Hours This Month
