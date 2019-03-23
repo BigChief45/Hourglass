@@ -51,4 +51,13 @@ class Punchcard < ApplicationRecord
     end
   end
 
+  def yearly_progress
+    JSON.dump(
+      (self.created_at.year..Time.current.year).map do |year|
+        year_hours = self.records.where('extract(year  from date) = ?', year).sum(:hours)
+        {year: year, hours: year_hours}
+      end
+    )
+  end
+
 end
