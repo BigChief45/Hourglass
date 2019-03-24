@@ -13,9 +13,19 @@ $ ->
       labels: true
       type: 'area'
       colors:
-        'hours': tabler.colors['blue']
+        'hours': tabler.colors['orange']
       names:
         'hours': 'Hours'
+    axis:
+      x:
+        label:
+          text: 'Year'
+          position: 'outer-center'
+      y:
+        label:
+          text: 'Hours'
+          position: 'outer-middle'
+        padding: {top: 120, bottom: 0}
     legend: show: false
     padding:
       bottom: 0
