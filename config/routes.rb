@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get 'settings', to: 'devise/registrations#edit'
   end
 
+  resources :memberships
   resources :punchcards do
     resources :records do
       get 'search', on: :collection

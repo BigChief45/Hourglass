@@ -24,6 +24,12 @@
 
               .dropdown-divider
 
+              - unless current_user.premium
+                = link_to new_membership_path, class: 'dropdown-item' do
+                  %i.dropdown-icon.fe.fe-star.text-success
+                  %strong.text-success Upgrade to Premium
+                .dropdown-divider
+
               = link_to logout_path, method: :delete, class: 'dropdown-item' do
                 %i.dropdown-icon.fe.fe-log-out
                 Sign Out
