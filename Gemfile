@@ -37,6 +37,8 @@ group :development, :test do
   gem 'capybara'
   gem 'faker'
 
+  gem 'dotenv-rails'
+
 end
 
 group :development do
