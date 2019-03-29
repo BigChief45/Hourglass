@@ -11,11 +11,16 @@ class PunchcardPolicy
   end
 
   def new?
-    true
+    if user.admin? || user.premium
+      true
+    elsif
+      # Allow free users to only create 1 punchcard
+      !(user.punchcards.count >= 1)
+    end
   end
 
   def create?
-    true
+    new?
   end
 
   def show?

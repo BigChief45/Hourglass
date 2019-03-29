@@ -8,6 +8,8 @@ class PunchcardsController < ApplicationController
 
   def new
     @card = current_user.punchcards.build
+    authorize @card
+
     @goal = @card.build_goal
   end
 
@@ -16,6 +18,7 @@ class PunchcardsController < ApplicationController
 
   def create
    @card = current_user.punchcards.build(punchcard_params)
+   authorize @card
 
    respond_to do |format|
       if @card.save
