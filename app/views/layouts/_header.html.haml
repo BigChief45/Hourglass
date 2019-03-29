@@ -14,6 +14,9 @@
               %span.avatar.avatar-cyan= current_user.initial
               %span.ml-2.d-none.d-lg-block
                 %span.text-default= current_user.email
+                - if current_user.premium
+                  %i.fe.fe-star.text-yellow{'data-toggle': 'tooltip', 'data-placement': 'bottom', 'title': 'Premium Member'}
+
                 - if current_user.admin
                   %small.text-muted.d-block.mt-1 Administrator
 

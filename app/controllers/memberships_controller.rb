@@ -18,7 +18,7 @@ class MembershipsController < ApplicationController
     current_user.stripe_customer_id = customer.id
     current_user.save
 
-    redirect_to root_path
+    redirect_to root_path, notice: 'Congratulations! You have successfully upraded to Premium membership.'
   end
 
 end

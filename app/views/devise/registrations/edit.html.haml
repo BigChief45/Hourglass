@@ -8,6 +8,16 @@
       = devise_error_messages!
 
       .form-group
+        %label.form-label Account Type
+        - if current_user.premium
+          .tag.tag-yellow
+            Premium
+        - else
+          .tag
+            Free
+          = link_to 'Upgrade to Premium', new_membership_path, class: 'small'
+
+      .form-group
         = f.label :email, class: 'form-label'
         = f.email_field :email, autofocus: true, class: 'form-control'
 
