@@ -4,11 +4,17 @@
   %head
     %title Hourglass - Pricing
 
-    = stylesheet_link_tag 'application', media: 'all'
+    /= stylesheet_link_tag 'application', media: 'all'
     = stylesheet_link_tag 'landing'
-    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Quicksand:400,500,700', rel: 'stylesheet'
+    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Rubik:400,400i,500,600,700|Quicksand:700|Indie+Flower:400', rel: 'stylesheet'
 
     = javascript_include_tag 'application'
 
+    = javascript_include_tag "https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"
+
+
   %body
     = yield
+
+    :javascript
+      feather.replace();

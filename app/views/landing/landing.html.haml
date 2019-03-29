@@ -1,44 +1,103 @@
-%section.welcome
-  %header
-    .container.d-flex.align-items-center
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %meta{:charset => "UTF-8"}
+    %meta{:content => "width=device-width,initial-scale=1.0,maximum-scale=5.0,minimum-scale=1.0,shrink-to-fit=no", :name => "viewport"}
+    %meta{:content => "ie=edge", "http-equiv" => "X-UA-Compatible"}
+    %meta{:content => "no-cache", "http-equiv" => "pragma"}
+    %meta{:content => "index,follow", :name => "robots"}
+    %title Hourglass
+    %meta{:content => "Tabler comes with tons of well-designed components and features. Start your adventure with Tabler and make your dashboard great again. For free!", :name => "description"}
 
-      .menu.ml-auto
-        = link_to 'Pricing', pricing_path, class: 'text-white'
-        = link_to 'Sign In', login_path, class: 'text-white'
+  %body
+    .page
+      %header.header.js-header
+        .container
+          .d-flex.align-items-center.position-relative
+            %a.logo{:href => "/"}
+              %img{:alt => "Tabler UI Kit", :src => "/img/tabler.svg", :title => ""}/
+              %div
+                Hourglass
+            %a.header-menu-btn
+              %svg.feather.feather-menu{:fill => "none", :height => "24", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+                %line{:x1 => "3", :x2 => "21", :y1 => "12", :y2 => "12"}
+                %line{:x1 => "3", :x2 => "21", :y1 => "6", :y2 => "6"}
+                %line{:x1 => "3", :x2 => "21", :y1 => "18", :y2 => "18"}
+            %nav.ml-auto.header-nav.d-none.d-md-block
+              = link_to 'Pricing', pricing_path
+              = link_to 'Sign In', login_path
 
-  .container
-    .text-center
-      .welcome-header
-        %h1.welcome-title Time tracking made simple
-        %p.welcome-description Know exactly how much time you are investing in your favorite activies.
 
-      .my-8
-        = link_to 'View Pricing', pricing_path, class: 'btn btn-pill btn-green'
-        = link_to 'Features', root_path, class: 'btn btn-pill btn-white ml-2'
+      %main.main
+        %section.welcome.welcome-blue.text-white{"aria-label" => "Page header"}
+          .container
+            .row.align-items-center.justify-content-between
+              .col-lg-6.text-center.text-lg-left.pr-lg-5
+                %h1.welcome-title Time tracking that matters. Made Simple.
+                %p.welcome-description
+                  Premium time tracking service for things that matter, to you.
+                .mt-5
+                  = link_to 'Pricing', pricing_path, class: 'btn btn-green'
+                  %a.btn.btn-white.ml-2{:href => "https://preview.tabler.io"} Features
+              .col-lg-5.pt-6.pt-lg-0
+                .welcome-image.welcome-image-2
+                  .device.device-macbook-pro.device-spacegray
+                    .device-frame
+                      = image_tag 'landing/hourglass_screenshot.png', class: 'preview-image img-responsive'
+                    .device-stripe
+                    .device-header
+                    .device-sensors
+                    .device-btns
+                    .device-power
 
-      .welcome-browser
-        %svg{:height => "565", :preserveaspectratio => "xMidYMid meet", :version => "1.1", :viewbox => "0 0 966 565", :width => "966", :xmlns => "http://www.w3.org/2000/svg", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-          %image{:height => "565", :width => "966", :x => "0", "xlink:href" => "https://tabler.github.io/assets/images/macbook.png", :y => "0"}
-          %image{:height => "478", :width => "730", :x => "117", "xlink:href" => "https://tabler.github.io/assets/images/dashboard.png", :y => "26"}
+        %section.section{"aria-label" => "Base features"}
+          .container
+            %h2.h3.section-title.text-center.mb-6
+              Hourglass comes with tons of
+              %br
+              well-designed components and features.
+            .row.align-items-center.justify-content-center
+              .col-10.col-md-5.pr-md-5.mb-5.mb-md-0
+                %picture
+                  %source{:srcset => "/img/tabler-features.webp", :type => "image/webp"}
+                    %source{:srcset => "/img/tabler-features.png", :type => "image/jpeg"}
+                      %img.img-responsive{:alt => "", :src => "/img/tabler-features.png"}/
+              .col
+                .row
+                  .col-12.mb-5.d-flex
+                    %i.text-muted.mr-2{'data-feather': 'clock', width: 50, height: 50}
+                    %div
+                      %h3.h5 Record time spent on things that matter
+                      %p.text-muted.m-0
+                        With Hourglass you can log how many hours in a day you invest in activities that are important to you.
+                  .col-12.mb-5.d-flex
+                    %i.text-muted.mr-2{'data-feather': 'bar-chart', width: 50, height: 50}
+                    %div
+                      %h3.h5 Understand your data
+                      %p.text-muted.m-0
+                        Hourglass provides beautiful components so that you can see how your time data has been logged over the years.
+                  .col-12.mb-5.d-flex
+                    %i.text-muted.mr-2{'data-feather': 'zap', width: 50, height: 50}
+                    %div
+                      %h3.h5 Secure your road to mastery.
+                      %p.text-muted.m-0
+                        Mastering a skill requires a significant investment of hours. Know if you are investing the required hours to achieve your goal!
 
+        %section.section.bg-light
+          .container.text-center
+            %h2.section-title.mb-2 Ready to start tracking?
+            %p.section-description
+              Sign up for a free trial. Or see our pricing plans
+            .mt-4
+              = link_to 'View Pricing', pricing_path, class: 'btn btn-green'
 
-%section.pt-8.bg-white
-  .container
-    .text-center
-      %h2.section-title Features
-      %p.section-description.mb-6.text-muted
-        Hourglass comes with many awesome features
-
-    .row
-      .col-lg-4
-        %img{src: 'https://tabler.github.io/assets/images/features/features-1.png'}
-      .col-lg-6
-        %h3 Punchcards for different activities
-        %p.text-muted Create a punchcard for every activity you want to keep track of. A punchcard will contain a lot of information about how much time you are investing in the activity.
-
-    .row
-      .col-lg-6
-        %h3 Heatmaps and Graphs
-        %p.text-muted Watch how your time data fluctuates through the years with built-in heatmaps and graphs.
-      .col-lg-4
-        %img{src: 'https://tabler.github.io/assets/images/features/features-1.png'}
+      %footer.footer
+        .container
+          .row.text-center.text-lg-left
+            .col-lg-6
+              %p
+                © 2019 Hourglass
+            .col-lg-6.text-lg-right
+              %a{:href => "/privacy-policy.html"} Privacy Policy
+              %a{:href => "/terms-of-service.html"} Terms of Usage
